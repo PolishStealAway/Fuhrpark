@@ -1,15 +1,19 @@
 ///////////////////////////////////////////////////////////////////////////
-// Workfile : main.cpp
+// Workfile : Object.cpp
 // Author : Philipp Holzer / Adam Kensy
 // Date : 15.10.2019
-// Description : testdriver for the carpool
+// Description : common base class 
 // Remarks : -
 // Revision : 0
 ///////////////////////////////////////////////////////////////////////////
 
-#include <iostream>
+#ifndef OBJECT_H
+#define OBJECT_H
 
-int main()
+class Object
 {
-	return 0;
-}
+public:
+	virtual ~Object();
+};
+
+#endif
