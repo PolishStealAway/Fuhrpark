@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>90</y>
+      <w>140</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>object
+--
++ ~ object virtual</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>140</y>
+      <w>220</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;10.0;200.0;70.0;10.0;70.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>280</y>
+      <w>160</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Vehicle
+--
+ - mVehicleType
+ - mBrand
+ - mLicense
+ + mLogBook
+
+ </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>280</y>
+      <w>230</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>CarPool
+
+--
+ - mVehicles
+ 
+--
+ + AddVehicle(Vehicle&amp; veh)
+ + RemoveVehicle(Vehicle&amp; veh)
+ + SearchByLicense(string&amp; lic)
+ + PrintVehicles(ostream&amp; os)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>930</x>
+      <y>280</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>LogBook
+
+--
+ - mEntries
+ 
+--
+ + SortByData()
+ + PrintLogs(ostream&amp; os)
+ + Clear()
+ + GetKMSum()
+ + AddEntry( ------ )
+ + RemoveEntry( ------ )</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>310</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>310</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>140</y>
+      <w>110</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;90.0;70.0;90.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>140</y>
+      <w>420</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;400.0;70.0;400.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>570</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Car
+-
+ - operator&lt;&lt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>570</y>
+      <w>130</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Truck
+-
+ - operator&lt;&lt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>570</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Motorcycle
+-
+ - operator&lt;&lt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
