@@ -12,7 +12,11 @@
 
 class Object
 {
+protected:
+	Object();
+
 public:
+
 	virtual ~Object();
 };
 
