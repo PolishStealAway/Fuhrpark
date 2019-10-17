@@ -22,13 +22,13 @@ public:
 	//Creates a new entry and adds it to the log book
 	//param date: Struct tm from ctime
 	//param distance: the driven distance in km
-	void NewEntry(tm& date, size_t distance);
+	void NewEntry(tm const& date, size_t const distance);
 
 	//Removes one single entry and which contains exactly the given date and distance
 	//param date: Struct tm from ctime
 	//param distance: the driven distance in km
 	//return: true if a entry got deleted, false if no deleteable entry was found
-	bool RemoveEntry(tm& date, size_t distance);
+	bool RemoveEntry(tm const& date, size_t const distance);
 
 	//Sorts all entries ascending by date
 	void SortByDate();
