@@ -9,6 +9,9 @@
 
 #include "LogBook.h"
 #include <algorithm>
+#include <iomanip>
+
+static const std::string cDistanceUnit = "km";
 
 void LogBook::NewEntry(tm const& date, size_t const distance)
 {
@@ -31,11 +34,15 @@ bool LogBook::RemoveEntry(tm const& date, size_t const distance)
 
 void LogBook::SortByDate()
 {
-	
+	std::sort(mEntries.begin(), mEntries.end());
 }
 
-void LogBook::PrintLogs(std::ostream& ost)
+void LogBook::PrintLogs(std::ostream& ost) const
 {
+	for (auto it = mEntries.cbegin(); it != mEntries.cend(); ++it)
+	{
+		it->PrintEntry(ost);
+	}
 }
 
 void LogBook::Clear()
@@ -43,15 +50,37 @@ void LogBook::Clear()
 	mEntries.clear();
 }
 
-size_t LogBook::GetKMSum()
+size_t LogBook::GetKMSum() const
 {
-	return 0; // std::accumulate(mEntries.cbegin(), mEntries.cend(), );
+	size_t sum = 0;
+	for (auto it = mEntries.cbegin(); it != mEntries.cend(); ++it)
+	{
+		sum += it->mDistance;
+	}
+
+	return sum;
 }
 
-//TEntry LogBook::CreateEntry(tm& date, size_t distance)
-//{
-//	TEntry entry;
-//	entry.date = date;
-//	entry.distance = distance;
-//	return entry
-//}
+bool LogBook::TEntry::operator==(TEntry const& entry) const
+{
+	return mDistance == entry.mDistance && mDate.tm_year == entry.mDate.tm_year && mDate.tm_mon == entry.mDate.tm_mon && mDate.tm_mday == entry.mDate.tm_mday;
+}
+
+bool LogBook::TEntry::operator<(TEntry const& entry) const
+{
+	if (mDate.tm_year <= entry.mDate.tm_year && mDate.tm_mon <= entry.mDate.tm_mon && mDate.tm_mday < entry.mDate.tm_mday)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void LogBook::TEntry::PrintEntry(std::ostream& ost) const
+{
+	ost << mDate.tm_mday << "." << mDate.tm_mon << "." << mDate.tm_year << ":" << std::right << mDistance << " " << cDistanceUnit << std::endl;
+}
+
+

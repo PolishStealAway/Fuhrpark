@@ -15,6 +15,7 @@
 #include <ctime>
 #include <ostream>
 
+//Class which represents a log book for vehicles
 class LogBook : public Object
 {
 public:
@@ -34,28 +35,35 @@ public:
 	void SortByDate();
 
 	//Prints the whole log book to the given ostream
-	//param: ostream to write
-	void PrintLogs(std::ostream& ost);
+	//param ost: ostream to write
+	void PrintLogs(std::ostream& ost) const;
 
 	//Deletes all entries
 	void Clear();
 
 	//Calculates the total distance in km
 	//return: total distance in km
-	size_t GetKMSum();
+	size_t GetKMSum() const;
 
 private:
 
-	//This structure maps an entry in the log book
-	struct TEntry
+	//This class represents an entry in the log book
+	class TEntry
 	{
-		tm date;
-		size_t distance;
+	public:
+		tm mDate;
+		size_t mDistance;
+
+		bool operator==(TEntry const& entry) const;
+		bool operator<(TEntry const& entry) const;
+
+		//Prints a single entry to the given ostream
+		//param ost: ostream to print at
+		void PrintEntry(std::ostream& ost) const;
 	};
 
 	std::vector<TEntry> mEntries;
 
-	//TEntry CreateEntry(tm& date, size_t distance);
 };
 
 #endif
