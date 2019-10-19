@@ -35,10 +35,11 @@
     </coordinates>
     <panel_attributes>Vehicle
 --
- - mVehicleType
  - mBrand
  - mLicense
  + mLogBook
+ + GetBrand
+ + GetLicense
 
  </panel_attributes>
     <additional_attributes/>
