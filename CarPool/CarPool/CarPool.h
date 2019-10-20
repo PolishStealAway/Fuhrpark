@@ -21,7 +21,7 @@ class CarPool : public Object
 public:
 	//Adds a new vehicle to the carpool
 	//param veh: an existing vehicle object
-	void AddVehicle(Vehicle const* const& veh);
+	void AddVehicle(Vehicle * const& veh);
 
 	//Removes an existing vehicle out of the carpool
 	//param veh: a vehicle that should be in the carpool

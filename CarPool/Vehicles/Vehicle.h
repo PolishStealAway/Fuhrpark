@@ -15,6 +15,7 @@
 class Vehicle : public Object
 {
 public:
+	LogBook mLogBook;
 
 	//Get-function for brand
 	std::string GetBrand() const;
@@ -23,10 +24,9 @@ public:
 	std::string GetLicense() const;
 
 	//Get-function for logbook
-	LogBook& GetLogbook();
+	LogBook GetLogbook();
 
 private:
-	LogBook mLogBook;
 
 	std::string mBrand;
 

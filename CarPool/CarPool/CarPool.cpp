@@ -11,7 +11,7 @@
 
 
 
-void CarPool::AddVehicle(Vehicle const * const& veh)
+void CarPool::AddVehicle(Vehicle * const& veh)
 {
 	mVehicles.emplace_back(veh);
 }
