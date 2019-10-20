@@ -19,7 +19,7 @@ std::string Vehicle::GetLicense() const
 	return mLicense;
 }
 
-LogBook& Vehicle::GetLogbook()
+LogBook Vehicle::GetLogbook()
 {
 	return mLogBook;
 }

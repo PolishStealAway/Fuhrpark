@@ -10,6 +10,7 @@
 #include <algorithm>
 
 
+
 void CarPool::AddVehicle(Vehicle const * const& veh)
 {
 	mVehicles.emplace_back(veh);
