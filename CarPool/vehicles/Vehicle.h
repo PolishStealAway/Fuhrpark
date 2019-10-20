@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Workfile : LogBook.cpp
+// Workfile : Vehicle.h
 // Author : Philipp Holzer / Adam Kensy
 // Date : 15.10.2019
 // Description : vehicle class
@@ -9,8 +9,8 @@
 
 #ifndef VEHICLE_H
 #define VEHICLE_H
-#include "..\LogBook\LogBook.h"
-#include "..\Object.h"
+#include "../LogBook/LogBook.h"
+#include "../Object.h"
 
 class Vehicle : public Object
 {

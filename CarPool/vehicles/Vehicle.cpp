@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Workfile : LogBook.cpp
+// Workfile : Vehicle.cpp
 // Author : Philipp Holzer / Adam Kensy
 // Date : 15.10.2019
 // Description : vehicle class

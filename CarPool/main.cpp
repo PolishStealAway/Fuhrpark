@@ -8,7 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include "LogBook.h"
+#include "LogBook/LogBook.h"
 
 int main()
 {

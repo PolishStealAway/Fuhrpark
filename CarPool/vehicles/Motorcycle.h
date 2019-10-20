@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Workfile : LogBook.cpp
+// Workfile : Motorcycle.h
 // Author : Philipp Holzer / Adam Kensy
 // Date : 15.10.2019
 // Description : vehicle class - motorcycle

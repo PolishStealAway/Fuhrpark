@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Workfile : LogBook.cpp
+// Workfile : Truck.cpp
 // Author : Philipp Holzer / Adam Kensy
 // Date : 15.10.2019
 // Description : vehicle class - truck

@@ -6,7 +6,7 @@
 // Remarks : -
 // Revision : 0
 ///////////////////////////////////////////////////////////////////////////
-#include "..\CarPool\CarPool.h"
+#include "../CarPool/CarPool.h"
 
 
 void CarPool::AddVehicle(Vehicle & veh)
@@ -36,4 +36,9 @@ void CarPool::PrintVehicles(std::ostream & os)
 	{
 		it->PrintVehicle();
 	}
+}
+
+size_t CarPool::GetVehicleAmount()
+{
+	return mVehicles.size();
 }

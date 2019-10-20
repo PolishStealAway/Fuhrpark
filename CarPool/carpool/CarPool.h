@@ -10,8 +10,8 @@
 #ifndef CARPOOL_H
 #define CARPOOL_H
 
-#include "..\Object.h"
-#include "..\Vehicles\Vehicle.h"
+#include "../Object.h"
+#include "../Vehicles/Vehicle.h"
 #include <list>
 
 class CarPool : public Object
@@ -31,10 +31,10 @@ public:
 
 	//prints the info of all vehicles in the carpool
 	void PrintVehicles(std::ostream & os);
-private:
 
-	//number of vehicles in the carpool
-	size_t mVehicleAmount;
+	//get function for amount of vehicles
+	size_t GetVehicleAmount();
+private:
 
 	//container which includes all vehicles
 	std::list<Vehicle> mVehicles;
