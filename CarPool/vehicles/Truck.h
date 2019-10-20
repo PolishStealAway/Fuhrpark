@@ -11,12 +11,11 @@
 #define TRUCK_H
 #include "Vehicle.h"
 
+std::ostream& operator<<(std::ostream& os, Truck& truck);
+
 class Truck : public Vehicle
 {
-private:
-	std::ostream& operator<<(std::ostream & os, Truck & truck);
 
-	void Print(std::ostream & os);
 };
 
 #endif

@@ -19,3 +19,8 @@ std::string Vehicle::GetLicense()
 	return mLicense;
 }
 
+LogBook& Vehicle::GetLogbook()
+{
+	return mLogBook;
+}
+

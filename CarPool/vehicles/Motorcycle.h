@@ -11,12 +11,10 @@
 #define MOTORCYCLE_H
 #include "Vehicle.h"
 
+std::ostream& operator<<(std::ostream& os, Motorcycle& motorcycle);
+
 class Motorcycle : public Vehicle
 {
-private:
-	std::ostream& operator<<(std::ostream & os, Motorcycle & motorcycle);
-
-	void Print(std::ostream & os);
 };
 
 #endif

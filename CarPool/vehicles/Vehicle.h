@@ -9,25 +9,26 @@
 
 #ifndef VEHICLE_H
 #define VEHICLE_H
-#include "LogBook.h"
+#include "..\LogBook\LogBook.h"
+#include "..\Object.h"
 
 class Vehicle : public Object
 {
 public:
 
-	// CTor 
-	Vehicle() = 0;
-
 	//Get-function for brand
 	std::string GetBrand();
+
 	//Get-function for license plate
 	std::string GetLicense();
 
+	//Get-function for logbook
+	LogBook& GetLogbook();
 
-	LogBook mLogBook;
 
 
 private:
+	LogBook mLogBook;
 
 	std::string mBrand;
 

@@ -10,8 +10,8 @@
 #ifndef CARPOOL_H
 #define CARPOOL_H
 
-#include "Object.h"
-#include "Vehicle.h"
+#include "..\Object.h"
+#include "..\Vehicles\Vehicle.h"
 #include <list>
 
 class CarPool : public Object
@@ -27,7 +27,7 @@ public:
 
 	//searches through the CarPool for an existing vehicle
 	//param lic: license plate number of the vehicle
-	Vehicle SearchByLicense(std::string & lic);	
+	Vehicle& SearchByLicense(std::string & lic);	
 
 	//prints the info of all vehicles in the carpool
 	void PrintVehicles(std::ostream & os);

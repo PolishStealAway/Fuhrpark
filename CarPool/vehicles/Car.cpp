@@ -8,15 +8,12 @@
 ///////////////////////////////////////////////////////////////////////////
 #include "Car.h"
 
-std::ostream & Car::operator<<(std::ostream & os, Car & car)
+std::ostream &operator<<(std::ostream & os, Car & car)
 {
-	// TODO: insert return statement here
-}
+	os << "Fahrzeugart: LKW" << std::endl;
+	os << "Marke: " << std::right << car.GetBrand() << std::endl;
+	os << "Kennzeichen: " << std::right << car.GetLicense() << std::endl;
+	car.GetLogbook().PrintLogs(os);
 
-void Car::Print(std::ostream & os)
-{
-	os << "Fahrzeugart: PKW" << endl;
-	os << "Marke: " << std::right << GetBrand() << endl;
-	os << "Kennzeichen: " << std::right << GetLicense() << endl;
-	os << mLogBook.PrintLogs();
+	return os;
 }

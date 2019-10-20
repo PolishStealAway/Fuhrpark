@@ -10,7 +10,7 @@
 #ifndef LOGBOOK_H
 #define LOGBOOK_H
 
-#include "Object.h"
+#include "../Object.h"
 #include <vector>
 #include <ctime>
 #include <ostream>

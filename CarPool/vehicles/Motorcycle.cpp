@@ -9,15 +9,13 @@
 #include "Motorcycle.h"
 
 
-std::ostream & Motorcycle::operator<<(std::ostream & os, Motorcycle & motorcycle)
+std::ostream &operator<<(std::ostream & os, Motorcycle & motorcycle)
 {
-	// TODO: insert return statement here
+	os << "Fahrzeugart: Motorrad" << std::endl;
+	os << "Marke: " << std::right << motorcycle.GetBrand() << std::endl;
+	os << "Kennzeichen: " << std::right << motorcycle.GetLicense() << std::endl;
+	motorcycle.GetLogbook().PrintLogs(os);
+
+	return os;
 }
 
-void Motorcycle::Print(std::ostream & os)
-{
-	os << "Fahrzeugart: Motorrad" << endl;
-	os << "Marke: " << std::right << GetBrand() << endl;
-	os << "Kennzeichen: " << std::right << GetLicense() << endl;
-	os << mLogBook.PrintLogs();
-}

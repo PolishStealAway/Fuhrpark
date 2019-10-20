@@ -9,15 +9,12 @@
 #include "Truck.h"
 
 
-std::ostream & Truck::operator<<(std::ostream & os, Truck & truck)
+std::ostream& operator<<(std::ostream& os, Truck& truck)
 {
-	os << Print();
-}
+	os << "Fahrzeugart: LKW" << std::endl;
+	os << "Marke: " << std::right << truck.GetBrand() << std::endl;
+	os << "Kennzeichen: " << std::right << truck.GetLicense() << std::endl;
+	truck.GetLogbook().PrintLogs(os);
 
-void Truck::Print(std::ostream & os)
-{
-	os << "Fahrzeugart: LKW" << endl;
-	os << "Marke: " << std::right << GetBrand() << endl;
-	os << "Kennzeichen: " << std::right << GetLicense() << endl;
-	os << mLogBook.PrintLogs();
+	return os;
 }
