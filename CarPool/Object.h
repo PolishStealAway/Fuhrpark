@@ -13,11 +13,11 @@
 class Object
 {
 protected:
-	Object();
+	Object() = default;
 
 public:
 
-	virtual ~Object();
+	virtual ~Object() = default;
 };
 
 #endif

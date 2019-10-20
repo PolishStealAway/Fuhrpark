@@ -15,6 +15,7 @@
 class Vehicle : public Object
 {
 public:
+
 	LogBook mLogBook;
 
 	//Get-function for brand
@@ -26,7 +27,11 @@ public:
 	//Get-function for logbook
 	LogBook GetLogbook();
 
-private:
+protected:
+
+	Vehicle() = default;
+
+	Vehicle(std::string const& lic, std::string const& brand);
 
 	std::string mBrand;
 

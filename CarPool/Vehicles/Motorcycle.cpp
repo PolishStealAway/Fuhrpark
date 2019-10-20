@@ -19,3 +19,6 @@ std::ostream &operator<<(std::ostream & os, Motorcycle & motorcycle)
 	return os;
 }
 
+Motorcycle::Motorcycle(std::string& lic, std::string& brand) : Vehicle{lic, brand}
+{
+}

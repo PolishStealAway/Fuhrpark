@@ -1,18 +1,1 @@
-///////////////////////////////////////////////////////////////////////////
-// Workfile : Object.cpp
-// Author : Philipp Holzer / Adam Kensy
-// Date : 15.10.2019
-// Description : common base class 
-// Remarks : -
-// Revision : 0
-///////////////////////////////////////////////////////////////////////////
 
-#include "Object.h"
-
-Object::Object()
-{
-}
-
-Object::~Object()
-{
-}

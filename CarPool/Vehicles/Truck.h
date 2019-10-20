@@ -13,7 +13,8 @@
 
 class Truck : public Vehicle
 {
-
+public:
+	Truck(std::string& lic, std::string& brand);
 };
 
 std::ostream& operator<<(std::ostream& os, Truck const& truck);

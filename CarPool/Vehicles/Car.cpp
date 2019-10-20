@@ -17,3 +17,7 @@ std::ostream &operator<<(std::ostream & os, Car & car)
 
 	return os;
 }
+
+Car::Car(std::string const& lic, std::string const& brand) : Vehicle {lic, brand}
+{
+}
