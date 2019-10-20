@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CarPool\CarPool.cpp" />
-    <ClCompile Include="LogBook.cpp" />
     <ClCompile Include="LogBook\LogBook.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -151,7 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CarPool\CarPool.h" />
-    <ClInclude Include="LogBook.h" />
     <ClInclude Include="LogBook\LogBook.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Vehicles\Car.h" />

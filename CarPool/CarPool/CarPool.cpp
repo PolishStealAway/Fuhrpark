@@ -9,23 +9,25 @@
 #include "../CarPool/CarPool.h"
 
 
-void CarPool::AddVehicle(Vehicle & veh)
+void CarPool::AddVehicle(Vehicle const * const veh)
 {
 	mVehicles.emplace_back(veh);
 }
 
-void CarPool::RemoveVehicle(Vehicle & veh)
+void CarPool::RemoveVehicle(Vehicle *& veh)
 {
+	delete veh;
+	veh = nullptr;
 	mVehicles.remove(veh);
 }
 
-Vehicle CarPool::SearchByLicense(std::string & lic)
+Vehicle& CarPool::SearchByLicense(std::string & lic)
 {
 	for (auto it = mVehicles.cbegin(); it != mVehicles.cend(); ++it)
 	{
 		if (it->GetLicense() == lic)
 		{
-			return it;
+			return (it);
 		}
 	}
 }
@@ -34,7 +36,7 @@ void CarPool::PrintVehicles(std::ostream & os)
 {
 	for (auto it = mVehicles.cbegin(); it != mVehicles.cend(); ++it)
 	{
-		it->PrintVehicle();
+		
 	}
 }
 
