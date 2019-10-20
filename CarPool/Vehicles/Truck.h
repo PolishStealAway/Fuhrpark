@@ -11,11 +11,11 @@
 #define TRUCK_H
 #include "Vehicle.h"
 
-std::ostream& operator<<(std::ostream& os, Truck const & truck);
-
 class Truck : public Vehicle
 {
 
 };
+
+std::ostream& operator<<(std::ostream& os, Truck const& truck);
 
 #endif

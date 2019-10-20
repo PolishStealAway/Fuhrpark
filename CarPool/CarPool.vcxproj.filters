@@ -30,9 +30,6 @@
     <ClCompile Include="Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LogBook.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CarPool\CarPool.cpp">
       <Filter>Source Files\CarPool</Filter>
     </ClCompile>
@@ -54,9 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Object.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LogBook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CarPool\CarPool.h">

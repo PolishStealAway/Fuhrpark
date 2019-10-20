@@ -14,20 +14,24 @@
 #include "../Vehicles/Vehicle.h"
 #include <list>
 
+typedef std::list<Vehicle*>::iterator TVehicleItor;
+
 class CarPool : public Object
 {
 public:
 	//Adds a new vehicle to the carpool
 	//param veh: an existing vehicle object
-	void AddVehicle(Vehicle & veh);
+	void AddVehicle(Vehicle const* const& veh);
 
 	//Removes an existing vehicle out of the carpool
 	//param veh: a vehicle that should be in the carpool
-	void RemoveVehicle(Vehicle & veh);
+	void RemoveVehicle(Vehicle*& veh);
 
 	//searches through the CarPool for an existing vehicle
 	//param lic: license plate number of the vehicle
-	Vehicle& SearchByLicense(std::string & lic);	
+	//param found: iterator which points on the found vehicle
+	//return: true if a vehicle was found else false
+	bool SearchByLicense(std::string const& lic, TVehicleItor& found);
 
 	//prints the info of all vehicles in the carpool
 	void PrintVehicles(std::ostream & os);
@@ -37,7 +41,7 @@ public:
 private:
 
 	//container which includes all vehicles
-	std::list<Vehicle> mVehicles;
+	std::list<Vehicle*> mVehicles;
 };
 
 #endif

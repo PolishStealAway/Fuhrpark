@@ -9,12 +9,12 @@
 #include "Vehicle.h"
 
 
-std::string Vehicle::GetBrand()
+std::string Vehicle::GetBrand() const
 {
 	return mBrand;
 }
 
-std::string Vehicle::GetLicense()
+std::string Vehicle::GetLicense() const
 {
 	return mLicense;
 }

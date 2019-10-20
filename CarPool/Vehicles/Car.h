@@ -11,10 +11,10 @@
 #define CAR_H
 #include "Vehicle.h"
 
-std::ostream& operator<<(std::ostream& os, Car& car);
-
 class Car : public Vehicle
 {
 };
+
+std::ostream& operator<<(std::ostream& os, Car const& car);
 
 #endif

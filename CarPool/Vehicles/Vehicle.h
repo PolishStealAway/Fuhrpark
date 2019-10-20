@@ -17,15 +17,13 @@ class Vehicle : public Object
 public:
 
 	//Get-function for brand
-	std::string GetBrand();
+	std::string GetBrand() const;
 
 	//Get-function for license plate
-	std::string GetLicense();
+	std::string GetLicense() const;
 
 	//Get-function for logbook
 	LogBook& GetLogbook();
-
-
 
 private:
 	LogBook mLogBook;
