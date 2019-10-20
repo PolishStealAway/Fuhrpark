@@ -13,14 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\CarPool">
+      <UniqueIdentifier>{5712612b-8e07-4bf9-9b9f-5f30ef0c7b00}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\LogBook">
-      <UniqueIdentifier>{b6abe015-e352-4bc2-a2cd-5d204571ce72}</UniqueIdentifier>
+      <UniqueIdentifier>{4094e99e-889e-41a1-beb4-9fc4d8b336d0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Vehicles">
-      <UniqueIdentifier>{cc321e95-2f8f-4de3-8939-da811c95e6b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\CarPool">
-      <UniqueIdentifier>{9255a3f6-3bb1-4055-aa0c-ffd8085c9a0b}</UniqueIdentifier>
+      <UniqueIdentifier>{4a26d7c5-3054-4e31-96f8-3527c18d618f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -33,11 +33,11 @@
     <ClCompile Include="LogBook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LogBook\LogBook.cpp">
-      <Filter>Source Files\LogBook</Filter>
-    </ClCompile>
     <ClCompile Include="CarPool\CarPool.cpp">
       <Filter>Source Files\CarPool</Filter>
+    </ClCompile>
+    <ClCompile Include="LogBook\LogBook.cpp">
+      <Filter>Source Files\LogBook</Filter>
     </ClCompile>
     <ClCompile Include="Vehicles\Car.cpp">
       <Filter>Source Files\Vehicles</Filter>
@@ -59,11 +59,11 @@
     <ClInclude Include="LogBook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LogBook\LogBook.h">
-      <Filter>Source Files\LogBook</Filter>
-    </ClInclude>
     <ClInclude Include="CarPool\CarPool.h">
       <Filter>Source Files\CarPool</Filter>
+    </ClInclude>
+    <ClInclude Include="LogBook\LogBook.h">
+      <Filter>Source Files\LogBook</Filter>
     </ClInclude>
     <ClInclude Include="Vehicles\Car.h">
       <Filter>Source Files\Vehicles</Filter>
