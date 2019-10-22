@@ -27,6 +27,9 @@ public:
 	//Get-function for logbook
 	LogBook GetLogbook();
 
+	//Prints the vehicle to the given ostream
+	virtual void Print(std::ostream& os) const = 0;
+
 protected:
 
 	Vehicle() = default;

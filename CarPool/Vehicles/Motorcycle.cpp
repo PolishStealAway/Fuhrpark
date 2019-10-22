@@ -8,17 +8,15 @@
 ///////////////////////////////////////////////////////////////////////////
 #include "Motorcycle.h"
 
-
-std::ostream &operator<<(std::ostream & os, Motorcycle & motorcycle)
-{
-	os << "Fahrzeugart: Motorrad" << std::endl;
-	os << "Marke: " << std::right << motorcycle.GetBrand() << std::endl;
-	os << "Kennzeichen: " << std::right << motorcycle.GetLicense() << std::endl;
-	motorcycle.GetLogbook().PrintLogs(os);
-
-	return os;
-}
-
 Motorcycle::Motorcycle(std::string& lic, std::string& brand) : Vehicle{lic, brand}
 {
+}
+
+void Motorcycle::Print(std::ostream& os) const
+{
+	os << "Fahrzeugart: Motorrad" << std::endl;
+	os << "Marke: " << std::right << mBrand << std::endl;
+	os << "Kennzeichen: " << std::right << mLicense << std::endl;
+	mLogBook.PrintLogs(os);
+	os << std::endl;
 }

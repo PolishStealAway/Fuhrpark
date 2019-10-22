@@ -13,6 +13,9 @@
 
 static const std::string cDistanceUnit = "km";
 
+static const size_t cTmOffsetYears = 1900;
+static const size_t cTmMonthOffset = 1;
+
 void LogBook::NewEntry(tm const& date, size_t const distance)
 {
 	mEntries.push_back(TEntry{ date, distance });
@@ -80,7 +83,7 @@ bool LogBook::TEntry::operator<(TEntry const& entry) const
 
 void LogBook::TEntry::PrintEntry(std::ostream& ost) const
 {
-	ost << mDate.tm_mday << "." << mDate.tm_mon << "." << mDate.tm_year << ":" << std::right << mDistance << " " << cDistanceUnit << std::endl;
+	ost << mDate.tm_mday << "." << mDate.tm_mon + cTmMonthOffset << "." << mDate.tm_year + cTmOffsetYears << ":" << std::right << mDistance << " " << cDistanceUnit << std::endl;
 }
 
 

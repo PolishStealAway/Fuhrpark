@@ -14,9 +14,9 @@
 class Truck : public Vehicle
 {
 public:
-	Truck(std::string& lic, std::string& brand);
-};
+	Truck(std::string const& lic, std::string const& brand);
 
-std::ostream& operator<<(std::ostream& os, Truck const& truck);
+	void Print(std::ostream& os) const override;
+};
 
 #endif

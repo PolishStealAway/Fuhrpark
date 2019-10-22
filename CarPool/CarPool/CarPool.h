@@ -12,6 +12,9 @@
 
 #include "../Object.h"
 #include "../Vehicles/Vehicle.h"
+#include "../Vehicles/Car.h"
+#include "../Vehicles/Truck.h"
+#include "../Vehicles/Motorcycle.h"
 #include <list>
 
 typedef std::list<Vehicle*>::iterator TVehicleItor;
@@ -19,9 +22,22 @@ typedef std::list<Vehicle*>::iterator TVehicleItor;
 class CarPool : public Object
 {
 public:
-	//Adds a new vehicle to the carpool
-	//param veh: an existing vehicle object
-	void AddVehicle(Vehicle * const& veh);
+	//DTor for CarPool
+	~CarPool() override;
+
+	CarPool(CarPool const& c);
+
+	//Adds a new car to the carpool
+	//param c: an existing car object
+	void AddCar(Car const& c);
+
+	//Adds a new car to the carpool
+	//param t: an existing car object
+	void AddTruck(Truck const& t);
+
+	//Adds a new car to the carpool
+	//param m: an existing car object
+	void AddMotorcycle(Motorcycle const& m);
 
 	//Removes an existing vehicle out of the carpool
 	//param veh: a vehicle that should be in the carpool

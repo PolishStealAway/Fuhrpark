@@ -8,12 +8,69 @@
 ///////////////////////////////////////////////////////////////////////////
 #include "../CarPool/CarPool.h"
 #include <algorithm>
+#include <iostream>
 
+static const std::string cErrLicenseAlreadyExists = "License already exists! Couldn't add vehicle.";
 
-
-void CarPool::AddVehicle(Vehicle * const& veh)
+CarPool::~CarPool()
 {
-	mVehicles.emplace_back(veh);
+	for (auto it = mVehicles.begin(); it != mVehicles.end(); ++it)
+	{
+		delete *it;
+		*it = nullptr;
+	}
+
+	mVehicles.clear();
+}
+
+CarPool::CarPool(CarPool const& c)
+{
+	/*for (auto it = c.mVehicles.cbegin(); it != c.mVehicles.cend(); ++it)
+	{
+		AddCar
+	}*/
+}
+
+void CarPool::AddCar(Car const& c)
+{
+	TVehicleItor it;
+	if (!SearchByLicense(c.GetLicense(), it))
+	{
+		Car* pVehicle = new Car{ c };
+		mVehicles.emplace_back(pVehicle);
+	}
+	else
+	{
+		std::cerr << cErrLicenseAlreadyExists << std::endl;
+	}
+}
+
+void CarPool::AddTruck(Truck const& t)
+{
+	TVehicleItor it;
+	if (!SearchByLicense(t.GetLicense(), it))
+	{
+		Truck* pVehicle = new Truck{ t };
+		mVehicles.emplace_back(pVehicle);
+	}
+	else
+	{
+		std::cerr << cErrLicenseAlreadyExists << std::endl;
+	}
+}
+
+void CarPool::AddMotorcycle(Motorcycle const& m)
+{
+	TVehicleItor it;
+	if (!SearchByLicense(m.GetLicense(), it))
+	{
+		Motorcycle* pVehicle = new Motorcycle{ m };
+		mVehicles.emplace_back(pVehicle);
+	}
+	else
+	{
+		std::cerr << cErrLicenseAlreadyExists << std::endl;
+	}
 }
 
 void CarPool::RemoveVehicle(Vehicle *& veh)
@@ -41,7 +98,7 @@ void CarPool::PrintVehicles(std::ostream & os)
 {
 	for (auto it = mVehicles.cbegin(); it != mVehicles.cend(); ++it)
 	{
-		os << *it;
+		(*it)->Print(os);
 	}
 }
 

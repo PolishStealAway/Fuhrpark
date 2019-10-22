@@ -16,8 +16,8 @@ class Motorcycle : public Vehicle
 public:
 
 	Motorcycle(std::string& lic, std::string& brand);
-};
 
-std::ostream& operator<<(std::ostream& os, Motorcycle const& motorcycle);
+	void Print(std::ostream& os) const override;
+};
 
 #endif
