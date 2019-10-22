@@ -36,7 +36,7 @@ public:
 
 	//Adds a new car to the carpool
 	//param c: an existing car object
-	void AddVehicle(Vehicle const* v);
+	void AddVehicle(Vehicle * v);
 
 	//Removes an existing vehicle out of the carpool
 	//param veh: a vehicle that should be in the carpool

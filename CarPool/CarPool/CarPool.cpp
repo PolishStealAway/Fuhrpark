@@ -29,7 +29,7 @@ void CarPool::operator=(CarPool const& cp)
 	Copy(cp);
 }
 
-void CarPool::AddVehicle(Vehicle const* v)
+void CarPool::AddVehicle(Vehicle * v)
 {
 	TVehicleItor it;
 	if (!SearchByLicense(v->GetLicense(), it))
