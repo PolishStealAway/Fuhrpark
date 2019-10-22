@@ -30,6 +30,9 @@ public:
 	//Prints the vehicle to the given ostream
 	virtual void Print(std::ostream& os) const = 0;
 
+	//creates a clone of itself
+	virtual Vehicle* Clone() const = 0;
+
 protected:
 
 	Vehicle() = default;

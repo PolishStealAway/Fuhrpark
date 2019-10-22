@@ -12,11 +12,16 @@ Car::Car(std::string const& lic, std::string const& brand) : Vehicle {lic, brand
 {
 }
 
-void Car::Print(std::ostream& os) const
+void Car::Print(std::ostream& os) const override
 {
 	os << "Fahrzeugart: PKW" << std::endl;
 	os << "Marke: " << std::right << mBrand << std::endl;
 	os << "Kennzeichen: " << std::right << mLicense << std::endl;
 	mLogBook.PrintLogs(os);
 	os << std::endl;
+}
+
+Vehicle* Car::Clone() const
+{
+	return new Car{ *this };
 }

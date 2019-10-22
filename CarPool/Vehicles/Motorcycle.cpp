@@ -20,3 +20,8 @@ void Motorcycle::Print(std::ostream& os) const
 	mLogBook.PrintLogs(os);
 	os << std::endl;
 }
+
+Vehicle* Motorcycle::Clone() const
+{
+	return new Motorcycle{ *this };
+}

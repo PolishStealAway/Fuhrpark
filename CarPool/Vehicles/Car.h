@@ -17,6 +17,8 @@ public:
 	Car(std::string const& lic, std::string const& brand);
 
 	void Print(std::ostream& os) const override;
+
+	Vehicle* Clone() const override;
 };
 
 #endif

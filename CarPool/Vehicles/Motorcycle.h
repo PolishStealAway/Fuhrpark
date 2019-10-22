@@ -18,6 +18,8 @@ public:
 	Motorcycle(std::string& lic, std::string& brand);
 
 	void Print(std::ostream& os) const override;
+
+	Vehicle* Clone() const override;
 };
 
 #endif
