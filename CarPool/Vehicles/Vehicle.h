@@ -30,7 +30,8 @@ public:
 	//Prints the vehicle to the given ostream
 	virtual void Print(std::ostream& os) const = 0;
 
-	//creates a clone of itself
+	//creates a clone of itself on the heap
+	//return: pointer to the instance of itself on the heap
 	virtual Vehicle* Clone() const = 0;
 
 protected:
