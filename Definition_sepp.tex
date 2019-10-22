@@ -1,0 +1,177 @@
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[a4paper, left=2cm, right=2cm, bottom=1cm, top=1cm,includeheadfoot]{geometry}
+%****************In her all definitions are listed*********************
+\usepackage[ngerman]{babel} 					% wegen deutschen Umlauten
+\usepackage[utf8]{inputenc}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{pdfpages}
+\usepackage{lastpage} 							% Required to determine the last page for the footer
+%\usepackage{amsmath}
+\usepackage{scrpage2}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{graphicx}							% Einbinden von Bildern
+%\usepackage{multicol} 							% Spalten
+%\usepackage{textcomp} 							% spitze klammern
+%\usepackage{hyperref}  						% hyperlinks
+\usepackage[absolute]{textpos}
+%*************************************************************************
+\pagestyle{scrheadings} 						% Wird für den Header gebraucht
+
+%%%%% HEADER %%%%%
+\ihead{\normalfont\sffamily\docsubjectshort}
+\chead{\normalfont\sffamily\docexercise} 
+\ohead{\normalfont\sffamily\docauthor}
+%%%%%%%%%%%%%%%%%%
+
+%%%%% FOOTER %%%%%
+\cfoot{Seite\ \thepage\ von\ \protect\pageref{LastPage}} % Bottom right footer
+%%%%%%%%%%%%%%%%%%
+
+\setlength{\headheight}{26pt}
+
+\setheadsepline{0.4pt}
+%\setfootsepline{0.4pt} 
+
+%\definecolor{mygray}{rgb}{0.95,0.95,0.95}
+
+
+%****************** self defined commands ***************************
+%include a .cpp source file
+%usage: \cppfile{../path_to_your_file/filename}
+\newcommand{\cppfile}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption="#1.cpp",label="#1.cpp", style=customcpp]{#1.cpp}
+\end{itemize}
+}
+
+%include a .c source file
+%usage: \cfile{../path_to_your_file/filename}
+\newcommand{\cfile}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption="#1.c",label="#1.c", style=customcpp]{#1.c}
+\end{itemize}
+}
+
+%include a code snippet
+%usage: \hfile{../path_to_your_file/filename}{startline}{endline}
+\newcommand{\csnippet}[3]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1.c, style=customcpp, firstline=#2,lastline=#3]{#1.c}
+\end{itemize}
+}
+
+%include a .h source file
+%usage: \hfile{../path_to_your_file/filename}
+\newcommand{\hfile}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption="#1".h,label="#1.h", style=customcpp]{#1.h}
+\end{itemize}
+}
+
+%include a module (.cpp and .h)
+%usage: \hfile{../path_to_your_file/filename}
+\newcommand{\cppmodul}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1.h,label=#1.h, style=customcpp]{#1.h}
+\item[]\lstinputlisting[caption=#1.cpp,label=#1.cpp, style=customcpp]{#1.cpp}
+\end{itemize}
+}
+
+%include a module (.c and .h)
+%usage: \hfile{../path_to_your_file/filename}
+\newcommand{\cmodul}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1.h,label=#1.h, style=customcpp]{#1.h}
+\item[]\lstinputlisting[caption=#1.c,label=#1.c, style=customcpp]{#1.c}
+\end{itemize}
+}
+
+%include a code snippet
+%usage: \hfile{../path_to_your_file/filename}{startline}{endline}
+\newcommand{\snippet}[3]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1.cpp,label=#1.cpp, style=customcpp, firstline=#2,lastline=#3]{#1.cpp}
+\end{itemize}
+}
+
+%include a test-output file 
+%usage: \testoutput{../path_to_your_file/filename}
+\newcommand{\testoutput}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1]{#1.txt}
+\end{itemize}
+}
+
+%include a .s source file
+%usage: \assemblerfile{../path_to_your_file/filename}
+
+\newcommand{\assemblerfile}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1.s ,label=#1.s , style=customassembler]{#1.s}
+\end{itemize}
+}
+
+%include a code snippet
+%usage: \hfile{../path_to_your_file/filename}{startline}{endline}
+\newcommand{\assemblersnippet}[3]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1.s, style=customassembler, firstline=#2,lastline=#3]{#1.s}
+\end{itemize}
+}
+
+%include a figure -> ensure that the picture is in the pics directory
+%usage: \fig{name_of_picture}{width}{caption text}
+%width between 0.0 - 1.0 -> correspond with textwidth
+\newcommand{\fig}[3]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#2\textwidth]{pics/#1.png}
+\caption{#3}
+\label{fig:fig1}
+\end{figure}
+}
+
+\lstset{
+   literate={ö}{{\"o}}1
+           {ä}{{\"a}}1
+           {ü}{{\"u}}1
+           {ß}{{\ss}}1
+           {é}{{\'e}}1,
+   inputencoding=ansinew,
+   extendedchars=true,
+   basicstyle=\scriptsize\ttfamily,
+   numberstyle=\scriptsize,
+   breaklines=true,
+   tabsize=4,
+   numbersep=5pt
+}
+
+\lstdefinestyle{customcpp}{
+   language=C++,
+   frame=single,
+   %backgroundcolor=\color{mygray},
+   numbers=left,
+   keywordstyle=\color{blue}\bfseries,
+   stringstyle=\color{BrickRed}\ttfamily,
+   commentstyle=\color{OliveGreen}\ttfamily,
+   showspaces=false,
+   showstringspaces=false,
+   showtabs=false,
+   xleftmargin=5px
+}
+
+\lstdefinestyle{customassembler}{
+   frame=single,
+   %backgroundcolor=\color{mygray},
+   %numbers=left,
+   %keywordstyle=\color{blue}\bfseries,
+   %stringstyle=\color{BrickRed}\ttfamily,
+   %showspaces=false,
+   %showstringspaces=false,
+   %showtabs=false,
+   %xleftmargin=5px,
+   %basicstyle   = \ttfamily,
+   %keywordstyle = \color{keyword}\bfseries,
+   %commentstyle=\color{OliveGreen}\ttfamily
+}
