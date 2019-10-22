@@ -8,3 +8,6 @@ einfügen mit pointer, genauso wie entfernen
 carpool - rule of three
 
 tm struct - eingabe muss vom anwender passen
+
+sortiert einfügen (fahrtenbuch meist nach dem fahren eingetragen somit eigentlich
+immer sortiert)
