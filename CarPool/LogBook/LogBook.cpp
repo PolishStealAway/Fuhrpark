@@ -10,6 +10,7 @@
 #include "LogBook.h"
 #include <algorithm>
 #include <iomanip>
+#include "../PrintParameters.h"
 
 static const std::string cDistanceUnit = "km";
 
@@ -42,6 +43,10 @@ void LogBook::SortByDate()
 
 void LogBook::PrintLogs(std::ostream& ost) const
 {
+	if (!ost.good())
+	{
+		std::cerr << "error write stream" << std::endl;
+	}
 	for (auto it = mEntries.cbegin(); it != mEntries.cend(); ++it)
 	{
 		it->PrintEntry(ost);
@@ -83,7 +88,13 @@ bool LogBook::TEntry::operator<(TEntry const& entry) const
 
 void LogBook::TEntry::PrintEntry(std::ostream& ost) const
 {
-	ost << mDate.tm_mday << "." << mDate.tm_mon + cTmMonthOffset << "." << mDate.tm_year + cTmOffsetYears << ":" << std::right << mDistance << " " << cDistanceUnit << std::endl;
+	if (!ost.good())
+	{
+		std::cerr << "error write stream" << std::endl;
+	}
+	ost << mDate.tm_mday << "." << mDate.tm_mon + cTmMonthOffset << "." 
+		<< mDate.tm_year + cTmOffsetYears << ":" << std::setw(8)<< std::right
+		<< mDistance << " " << cDistanceUnit << std::endl;
 }
 
 

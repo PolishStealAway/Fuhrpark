@@ -7,6 +7,8 @@
 // Revision : 0	
 ///////////////////////////////////////////////////////////////////////////
 #include "Motorcycle.h"
+#include "../PrintParameters.h"
+#include <iomanip>
 
 Motorcycle::Motorcycle(std::string& lic, std::string& brand) : Vehicle{lic, brand}
 {
@@ -14,9 +16,13 @@ Motorcycle::Motorcycle(std::string& lic, std::string& brand) : Vehicle{lic, bran
 
 void Motorcycle::Print(std::ostream& os) const
 {
-	os << "Fahrzeugart: Motorrad" << std::endl;
-	os << "Marke: " << std::right << mBrand << std::endl;
-	os << "Kennzeichen: " << std::right << mLicense << std::endl;
+	if (!os.good())
+	{
+		std::cerr << "error write stream" << std::endl;
+	}
+	os << std::setw(14) << std::left << "Fahrzeugart:" << std::right << "Motorrad" << std::endl;
+	os << std::setw(14) << std::left << "Marke: " << std::right << mBrand << std::endl;
+	os << std::setw(14) << std::left << "Kennzeichen: " << std::right << mLicense << std::endl;
 	mLogBook.PrintLogs(os);
 	os << std::endl;
 }

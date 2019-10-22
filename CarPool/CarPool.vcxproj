@@ -152,6 +152,7 @@
     <ClInclude Include="CarPool\CarPool.h" />
     <ClInclude Include="LogBook\LogBook.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="PrintParameters.h" />
     <ClInclude Include="Vehicles\Car.h" />
     <ClInclude Include="Vehicles\Motorcycle.h" />
     <ClInclude Include="Vehicles\Truck.h" />

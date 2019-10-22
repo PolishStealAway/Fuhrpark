@@ -71,6 +71,10 @@ bool CarPool::SearchByLicense(std::string const& lic, TVehicleItor & found)
 
 void CarPool::PrintVehicles(std::ostream & os)
 {
+	if (!os.good())
+	{
+		std::cerr << "error write stream" << std::endl;
+	}
 	for (auto it = mVehicles.cbegin(); it != mVehicles.cend(); ++it)
 	{
 		(*it)->Print(os);

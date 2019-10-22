@@ -95,7 +95,7 @@ int main()
 	adams_truck.mLogBook.NewEntry(t5, 21);
 
 	phils_truck.mLogBook.NewEntry(t1, 4567);
-	phils_truck.mLogBook.NewEntry(t2, 243456);
+	phils_truck.mLogBook.NewEntry(t2, 82456);
 	phils_truck.mLogBook.NewEntry(t3, 4332);
 	phils_truck.mLogBook.NewEntry(t4, 6789);
 	phils_truck.mLogBook.NewEntry(t5, 4321);

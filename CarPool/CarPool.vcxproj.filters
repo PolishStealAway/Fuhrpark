@@ -71,5 +71,8 @@
     <ClInclude Include="Vehicles\Vehicle.h">
       <Filter>Source Files\Vehicles</Filter>
     </ClInclude>
+    <ClInclude Include="PrintParameters.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

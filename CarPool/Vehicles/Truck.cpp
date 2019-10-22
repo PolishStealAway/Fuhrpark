@@ -7,6 +7,8 @@
 // Revision : 0	
 ///////////////////////////////////////////////////////////////////////////
 #include "Truck.h"
+#include "../PrintParameters.h"
+#include <iomanip>	
 
 Truck::Truck(std::string const& lic, std::string const& brand) : Vehicle{lic, brand}
 {
@@ -14,9 +16,13 @@ Truck::Truck(std::string const& lic, std::string const& brand) : Vehicle{lic, br
 
 void Truck::Print(std::ostream& os) const
 {
-	os << "Fahrzeugart: LKW" << std::endl;
-	os << "Marke: " << std::right << mBrand << std::endl;
-	os << "Kennzeichen: " << std::right << mLicense << std::endl;
+	if (!os.good())
+	{
+		std::cerr << "error write stream" << std::endl;
+	}
+	os << std::setw(14) << std::left << "Fahrzeugart:" << std::right << "LKW" << std::endl;
+	os << std::setw(14) << std::left << "Marke: " << std::right << mBrand << std::endl;
+	os << std::setw(14) << std::left << "Kennzeichen: " << std::right << mLicense << std::endl;
 	mLogBook.PrintLogs(os);
 	os << std::endl;
 }
