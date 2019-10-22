@@ -31,7 +31,7 @@ int main()
 	string brand_tr_1 = "Mercedes";
 	
 	string lic_tr_2 = "LL-WARE4";
-	string brand_tr_2 = "Königsegg";
+	string brand_tr_2 = "Koenigsegg";
 	
 	string lic_c_1 = "LL-ISSO5";
 	string brand_c_1 = "Opel Corsa (nagelneu)";
@@ -68,7 +68,7 @@ int main()
 
 	tm t4;
 	t4.tm_year = 119;
-	t4.tm_mon = 12;
+	t4.tm_mon = 11;
 	t4.tm_mday = 4;
 
 	tm t5;
@@ -120,9 +120,45 @@ int main()
 	PandA_Solutions.AddVehicle(phils_truck.Clone());
 	PandA_Solutions.AddVehicle(phils_car.Clone());
 
+	cout << "All added vehicles: " << endl;
+	cout << "-----------------------------------" << endl;
 	PandA_Solutions.PrintVehicles(cout);
 
+	PandA_Solutions.RemoveVehicle(adams_car.GetLicense());
 
+	cout << "Adams Car (LL-ISSO5) got removed: " << endl;
+	cout << "-----------------------------------" << endl;
+
+	PandA_Solutions.PrintVehicles(cout);
+
+	cout << "Print LKW with license 'LL-HARD3' (SearchByLicense): " << endl;
+	cout << "-----------------------------------" << endl;
+
+	TVehiclePointerItor it;
+	if (PandA_Solutions.SearchByLicense("LL-HARD3", it))
+	{
+		(*it)->Print(cout);
+	}
+	else
+	{
+		cerr << "LKW with the license 'LL-HARD3' does not exist";
+	}
+
+	cout << "Number of vehicles in the car pool: " << endl;
+	cout << PandA_Solutions.GetVehicleAmount() << endl << endl;
+
+	cout << "Print vehicles of copied object (Copy CTOR): " << endl;
+	cout << "-----------------------------------" << endl;
+
+	CarPool carpool1{ PandA_Solutions };
+	carpool1.PrintVehicles(cout);
+
+	cout << "Remove vehicle with license 'LL-HARD3' and assign PandA_Solutions to carpool1 (assignment operator): " << endl;
+	cout << "-----------------------------------" << endl;
+	PandA_Solutions.RemoveVehicle("L-HARD3");
+	carpool1 = PandA_Solutions;
+	carpool1.PrintVehicles(cout);
+	
 
 	return 0;
 }

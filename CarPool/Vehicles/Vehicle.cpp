@@ -19,11 +19,6 @@ std::string Vehicle::GetLicense() const
 	return mLicense;
 }
 
-LogBook Vehicle::GetLogbook()
-{
-	return mLogBook;
-}
-
 Vehicle::Vehicle(std::string const& lic, std::string const& brand) : mLicense{lic}, mBrand{brand}
 {
 }

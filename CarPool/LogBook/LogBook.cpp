@@ -18,7 +18,11 @@ static const size_t cTmMonthOffset = 1;
 
 void LogBook::NewEntry(tm const& date, size_t const distance)
 {
-	mEntries.push_back(TEntry{ date, distance });
+	TEntry newEntry{ date, distance };
+	auto it = mEntries.cbegin();
+	for (; it != mEntries.cend() && newEntry < *it; ++it);
+
+	mEntries.insert(it, newEntry);
 }
 
 bool LogBook::RemoveEntry(tm const& date, size_t const distance)
