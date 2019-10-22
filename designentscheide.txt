@@ -1,0 +1,8 @@
+Carpool redet mit uns über konsole - 
+wenn kein fahrzeug hinzugefügt/entfernt werden kann -> error ansonsten nichts
+
+international -> keine ebnf
+
+einfügen mit pointer, genauso wie entfernen
+
+carpool - rule of three
