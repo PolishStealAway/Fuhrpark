@@ -25,23 +25,22 @@ public:
 	//DTor for CarPool
 	~CarPool() override;
 
-	CarPool(CarPool const& c);
+	//Default CTOR
+	CarPool() = default;
+
+	//Copy-CTOR
+	CarPool(CarPool const& cp);
+
+	//assignmentoperator
+	void operator=(CarPool const& cp);
 
 	//Adds a new car to the carpool
 	//param c: an existing car object
-	void AddCar(Car const& c);
-
-	//Adds a new car to the carpool
-	//param t: an existing car object
-	void AddTruck(Truck const& t);
-
-	//Adds a new car to the carpool
-	//param m: an existing car object
-	void AddMotorcycle(Motorcycle const& m);
+	void AddVehicle(Vehicle * v);
 
 	//Removes an existing vehicle out of the carpool
 	//param veh: a vehicle that should be in the carpool
-	void RemoveVehicle(Vehicle*& veh);
+	void RemoveVehicle(Vehicle const* v);
 
 	//searches through the CarPool for an existing vehicle
 	//param lic: license plate number of the vehicle
@@ -58,6 +57,15 @@ private:
 
 	//container which includes all vehicles
 	std::list<Vehicle*> mVehicles;
+
+	//Helpfunction for DTOR and assignment operator
+	//param cp: the copied/assigned CarPool
+	void Copy(CarPool const& cp);
+
+	//Helpfunction for DTOR and assignment operator
+	//Frees all allocated memory
+	void Free();
+
 };
 
 #endif

@@ -112,13 +112,13 @@ int main()
 	phils_car.mLogBook.NewEntry(t4, 46);
 	phils_car.mLogBook.NewEntry(t5, 7392);
 
-	PandA_Solutions.AddMotorcycle(adams_bike);
-	PandA_Solutions.AddTruck(adams_truck);
-	PandA_Solutions.AddCar(adams_car);
+	PandA_Solutions.AddVehicle(adams_bike.Clone());
+	PandA_Solutions.AddVehicle(adams_truck.Clone());
+	PandA_Solutions.AddVehicle(adams_car.Clone());
 
-	PandA_Solutions.AddMotorcycle(phils_bike);
-	PandA_Solutions.AddTruck(phils_truck);
-	PandA_Solutions.AddCar(phils_car);
+	PandA_Solutions.AddVehicle(phils_bike.Clone());
+	PandA_Solutions.AddVehicle(phils_truck.Clone());
+	PandA_Solutions.AddVehicle(phils_car.Clone());
 
 	PandA_Solutions.PrintVehicles(cout);
 

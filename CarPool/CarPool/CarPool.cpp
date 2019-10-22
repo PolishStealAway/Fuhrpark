@@ -11,33 +11,30 @@
 #include <iostream>
 
 static const std::string cErrLicenseAlreadyExists = "License already exists! Couldn't add vehicle.";
+static const std::string cErrVehicleDoesNotExist = "Vehicle does not exist! Couldn't remove vehicle.";
 
 CarPool::~CarPool()
 {
-	for (auto it = mVehicles.begin(); it != mVehicles.end(); ++it)
-	{
-		delete *it;
-		*it = nullptr;
-	}
-
-	mVehicles.clear();
+	Free();
 }
 
-CarPool::CarPool(CarPool const& c)
+CarPool::CarPool(CarPool const& cp)
 {
-	/*for (auto it = c.mVehicles.cbegin(); it != c.mVehicles.cend(); ++it)
-	{
-		AddCar
-	}*/
+	Copy(cp);
 }
 
-void CarPool::AddCar(Car const& c)
+void CarPool::operator=(CarPool const& cp)
+{
+	Free();
+	Copy(cp);
+}
+
+void CarPool::AddVehicle(Vehicle * v)
 {
 	TVehicleItor it;
-	if (!SearchByLicense(c.GetLicense(), it))
+	if (!SearchByLicense(v->GetLicense(), it))
 	{
-		Car* pVehicle = new Car{ c };
-		mVehicles.emplace_back(pVehicle);
+		mVehicles.emplace_back(v);
 	}
 	else
 	{
@@ -45,39 +42,17 @@ void CarPool::AddCar(Car const& c)
 	}
 }
 
-void CarPool::AddTruck(Truck const& t)
+void CarPool::RemoveVehicle(Vehicle const* v)
 {
 	TVehicleItor it;
-	if (!SearchByLicense(t.GetLicense(), it))
+	if (SearchByLicense(v->GetLicense(), it))
 	{
-		Truck* pVehicle = new Truck{ t };
-		mVehicles.emplace_back(pVehicle);
+		mVehicles.erase(it);
 	}
 	else
 	{
-		std::cerr << cErrLicenseAlreadyExists << std::endl;
+		std::cerr << cErrVehicleDoesNotExist << std::endl;
 	}
-}
-
-void CarPool::AddMotorcycle(Motorcycle const& m)
-{
-	TVehicleItor it;
-	if (!SearchByLicense(m.GetLicense(), it))
-	{
-		Motorcycle* pVehicle = new Motorcycle{ m };
-		mVehicles.emplace_back(pVehicle);
-	}
-	else
-	{
-		std::cerr << cErrLicenseAlreadyExists << std::endl;
-	}
-}
-
-void CarPool::RemoveVehicle(Vehicle *& veh)
-{
-	delete veh;
-	veh = nullptr;
-	mVehicles.remove(veh);
 }
 
 bool CarPool::SearchByLicense(std::string const& lic, TVehicleItor & found)
@@ -105,4 +80,23 @@ void CarPool::PrintVehicles(std::ostream & os)
 size_t CarPool::GetVehicleAmount()
 {
 	return mVehicles.size();
+}
+
+void CarPool::Copy(CarPool const& cp)
+{
+	for (auto it = cp.mVehicles.cbegin(); it != cp.mVehicles.cend(); ++it)
+	{
+		AddVehicle((*it)->Clone());
+	}
+}
+
+void CarPool::Free()
+{
+	for (auto it = mVehicles.begin(); it != mVehicles.end(); ++it)
+	{
+		delete* it;
+		*it = nullptr;
+	}
+
+	mVehicles.clear();
 }
