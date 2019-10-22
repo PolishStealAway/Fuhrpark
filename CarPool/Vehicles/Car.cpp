@@ -12,7 +12,7 @@ Car::Car(std::string const& lic, std::string const& brand) : Vehicle {lic, brand
 {
 }
 
-void Car::Print(std::ostream& os) const override
+void Car::Print(std::ostream& os) const
 {
 	os << "Fahrzeugart: PKW" << std::endl;
 	os << "Marke: " << std::right << mBrand << std::endl;
