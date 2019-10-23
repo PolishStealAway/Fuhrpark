@@ -13,7 +13,7 @@
 #include "../Object.h"
 #include <vector>
 #include <ctime>
-#include <ostream>
+#include <iostream>
 
 //Class which represents a log book for vehicles
 class LogBook : public Object
@@ -28,11 +28,7 @@ public:
 	//Removes one single entry and which contains exactly the given date and distance
 	//param date: Struct tm from ctime
 	//param distance: the driven distance in km
-	//return: true if a entry got deleted, false if no deleteable entry was found
-	bool RemoveEntry(tm const& date, size_t const distance);
-
-	//Sorts all entries ascending by date
-	void SortByDate();
+	void RemoveEntry(tm const& date, size_t const distance);
 
 	//Prints the whole log book to the given ostream
 	//param ost: ostream to write
@@ -63,7 +59,6 @@ private:
 	};
 
 	std::vector<TEntry> mEntries;
-
 };
 
 #endif

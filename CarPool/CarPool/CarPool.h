@@ -17,7 +17,7 @@
 #include "../Vehicles/Motorcycle.h"
 #include <list>
 
-typedef std::list<Vehicle*>::iterator TVehicleItor;
+typedef std::list<Vehicle*>::iterator TVehiclePointerItor;
 
 class CarPool : public Object
 {
@@ -40,16 +40,16 @@ public:
 
 	//Removes an existing vehicle out of the carpool
 	//param veh: a vehicle that should be in the carpool
-	void RemoveVehicle(Vehicle const* v);
+	void RemoveVehicle(std::string const& license);
 
 	//searches through the CarPool for an existing vehicle
 	//param lic: license plate number of the vehicle
 	//param found: iterator which points on the found vehicle
 	//return: true if a vehicle was found else false
-	bool SearchByLicense(std::string const& lic, TVehicleItor& found);
+	bool SearchByLicense(std::string const& lic, TVehiclePointerItor& found);
 
 	//prints the info of all vehicles in the carpool
-	void PrintVehicles(std::ostream & os);
+	void PrintVehicles(std::ostream & os) const;
 
 	//get function for amount of vehicles
 	size_t GetVehicleAmount();

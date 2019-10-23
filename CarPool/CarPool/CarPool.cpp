@@ -25,13 +25,16 @@ CarPool::CarPool(CarPool const& cp)
 
 void CarPool::operator=(CarPool const& cp)
 {
-	Free();
-	Copy(cp);
+	if (this != &cp)
+	{
+		Free();
+		Copy(cp);
+	}	
 }
 
 void CarPool::AddVehicle(Vehicle * v)
 {
-	TVehicleItor it;
+	TVehiclePointerItor it;
 	if (!SearchByLicense(v->GetLicense(), it))
 	{
 		mVehicles.emplace_back(v);
@@ -42,11 +45,13 @@ void CarPool::AddVehicle(Vehicle * v)
 	}
 }
 
-void CarPool::RemoveVehicle(Vehicle const* v)
+void CarPool::RemoveVehicle(std::string const& license)
 {
-	TVehicleItor it;
-	if (SearchByLicense(v->GetLicense(), it))
+	TVehiclePointerItor it;
+	if (SearchByLicense(license, it))
 	{
+		delete* it;
+		*it = nullptr;
 		mVehicles.erase(it);
 	}
 	else
@@ -55,7 +60,7 @@ void CarPool::RemoveVehicle(Vehicle const* v)
 	}
 }
 
-bool CarPool::SearchByLicense(std::string const& lic, TVehicleItor & found)
+bool CarPool::SearchByLicense(std::string const& lic, TVehiclePointerItor & found)
 {
 	auto compByLicense = [&](auto * v) { return v->GetLicense() == lic; };
 	found = std::find_if(mVehicles.begin(), mVehicles.end(), compByLicense);
@@ -69,7 +74,7 @@ bool CarPool::SearchByLicense(std::string const& lic, TVehicleItor & found)
 	}
 }
 
-void CarPool::PrintVehicles(std::ostream & os)
+void CarPool::PrintVehicles(std::ostream & os) const
 {
 	if (!os.good())
 	{
