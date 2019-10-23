@@ -89,8 +89,44 @@ int main()
 	cout << "***********************************" << endl;
 
 	adams_bike.mLogBook.PrintLogs(cout);
+	cout << endl;
 
+	cout << "Entry got removed: " << endl;
+	cout << "-----------------------------------" << endl;
 
+	adams_bike.mLogBook.RemoveEntry(t5, 89);
+	adams_bike.mLogBook.PrintLogs(cout);
+	cout << endl;
+
+	cout << " Removing a nonexisting entry: " << endl;
+	cout << "-----------------------------------" << endl;
+
+	if (!adams_bike.mLogBook.RemoveEntry(t5, 1717))
+	{
+		cout << "could't remove entry";
+	}
+	cout << endl;
+
+	cout << "Print km-sum: " << endl;
+	cout << "-----------------------------------" << endl;
+
+	cout << adams_bike.mLogBook.GetKMSum() << endl;
+	cout << endl;
+	
+	cout << "Log cleared (for the next testcases it got filled again): " << endl;
+	cout << "-----------------------------------" << endl;
+	cout << endl;
+
+	adams_bike.mLogBook.NewEntry(t1, 17);
+	adams_bike.mLogBook.NewEntry(t2, 43);
+	adams_bike.mLogBook.NewEntry(t3, 21);
+	adams_bike.mLogBook.NewEntry(t4, 43);
+	adams_bike.mLogBook.NewEntry(t5, 89);
+	adams_bike.mLogBook.NewEntry(t5, 110);
+	adams_bike.mLogBook.NewEntry(t5, 89);
+
+	adams_bike.mLogBook.Clear();
+	adams_bike.mLogBook.PrintLogs(cout);
 
 	phils_bike.mLogBook.NewEntry(t1, 432);
 	phils_bike.mLogBook.NewEntry(t2, 23);
