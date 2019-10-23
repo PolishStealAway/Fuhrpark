@@ -16,6 +16,8 @@ static const std::string cDistanceUnit = "km";
 static const size_t cTmOffsetYears = 1900;
 static const size_t cTmMonthOffset = 1;
 
+static const std::string cErrEntryDoesNotExist = "Entry does not exist! Couldn't delete entry.";
+
 void LogBook::NewEntry(tm const& date, size_t const distance)
 {
 	TEntry newEntry{ date, distance };
@@ -24,17 +26,16 @@ void LogBook::NewEntry(tm const& date, size_t const distance)
 	mEntries.insert(it, newEntry);
 }
 
-bool LogBook::RemoveEntry(tm const& date, size_t const distance)
+void LogBook::RemoveEntry(tm const& date, size_t const distance)
 {
 	auto foundIt = std::find(mEntries.cbegin(), mEntries.cend(), TEntry{ date, distance });
 	if (foundIt != mEntries.cend())
 	{
 		mEntries.erase(foundIt);
-		return true;
 	}
 	else
 	{
-		return false;
+		std::cerr << cErrEntryDoesNotExist << std::endl;
 	}	
 }
 

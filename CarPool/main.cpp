@@ -101,10 +101,8 @@ int main()
 	cout << " Removing a nonexisting entry: " << endl;
 	cout << "-----------------------------------" << endl;
 
-	if (!adams_bike.mLogBook.RemoveEntry(t5, 1717))
-	{
-		cout << "could't remove entry";
-	}
+	adams_bike.mLogBook.RemoveEntry(t5, 1717);
+
 	cout << endl;
 
 	cout << "Print km-sum: " << endl;
@@ -207,8 +205,10 @@ int main()
 	cout << "-----------------------------------" << endl;
 	PandA_Solutions.RemoveVehicle("L-HARD3");
 	carpool1 = PandA_Solutions;
-	carpool1.PrintVehicles(cout);
-	
+	carpool1.PrintVehicles(cout);	
+
+	//test self assignment
+	carpool1 = carpool1;
 
 	return 0;
 }
