@@ -19,9 +19,8 @@ static const size_t cTmMonthOffset = 1;
 void LogBook::NewEntry(tm const& date, size_t const distance)
 {
 	TEntry newEntry{ date, distance };
-	auto it = mEntries.cbegin();
-	for (; it != mEntries.cend() && newEntry < *it; ++it);
-
+	//find the position where to insert the new entry
+	auto it = std::find_if(mEntries.cbegin(), mEntries.cend(), [newEntry](TEntry const& e) { return newEntry < e; });
 	mEntries.insert(it, newEntry);
 }
 
@@ -37,11 +36,6 @@ bool LogBook::RemoveEntry(tm const& date, size_t const distance)
 	{
 		return false;
 	}	
-}
-
-void LogBook::SortByDate()
-{
-	std::sort(mEntries.begin(), mEntries.end());
 }
 
 void LogBook::PrintLogs(std::ostream& ost) const
@@ -75,9 +69,44 @@ bool LogBook::TEntry::operator==(TEntry const& entry) const
 
 bool LogBook::TEntry::operator<(TEntry const& entry) const
 {
-	if (mDate.tm_year <= entry.mDate.tm_year && mDate.tm_mon <= entry.mDate.tm_mon && mDate.tm_mday < entry.mDate.tm_mday)
+	if (mDate.tm_year <= entry.mDate.tm_year)
 	{
-		return true;
+		if (mDate.tm_year < entry.mDate.tm_year)
+		{
+			return true;
+		}
+		else
+		{
+			if (mDate.tm_mon <= entry.mDate.tm_mon)
+			{
+				if (mDate.tm_mon < entry.mDate.tm_mon)
+				{
+					return true;
+				}
+				else
+				{
+					if (mDate.tm_mday < entry.mDate.tm_mday)
+					{
+						return true;
+					}
+					else
+					{
+						if (mDistance < entry.mDistance)
+						{
+							return true;
+						}
+						else
+						{
+							return false;
+						}						
+					}
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}		
 	}
 	else
 	{

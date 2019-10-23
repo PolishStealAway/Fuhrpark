@@ -81,6 +81,16 @@ int main()
 	adams_bike.mLogBook.NewEntry(t3, 21);
 	adams_bike.mLogBook.NewEntry(t4, 43);
 	adams_bike.mLogBook.NewEntry(t5, 89);
+	adams_bike.mLogBook.NewEntry(t5, 110);
+	adams_bike.mLogBook.NewEntry(t5, 89);	
+
+	cout << "***********************************" << endl;
+	cout << "Testsection LogBook " << endl;
+	cout << "***********************************" << endl;
+
+	adams_bike.mLogBook.PrintLogs(cout);
+
+
 
 	phils_bike.mLogBook.NewEntry(t1, 432);
 	phils_bike.mLogBook.NewEntry(t2, 23);
@@ -119,6 +129,10 @@ int main()
 	PandA_Solutions.AddVehicle(phils_bike.Clone());
 	PandA_Solutions.AddVehicle(phils_truck.Clone());
 	PandA_Solutions.AddVehicle(phils_car.Clone());
+
+	cout << "***********************************" << endl;
+	cout << "Testsection CarPool " << endl;
+	cout << "***********************************" << endl;
 
 	cout << "All added vehicles: " << endl;
 	cout << "-----------------------------------" << endl;

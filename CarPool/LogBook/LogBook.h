@@ -31,9 +31,6 @@ public:
 	//return: true if a entry got deleted, false if no deleteable entry was found
 	bool RemoveEntry(tm const& date, size_t const distance);
 
-	//Sorts all entries ascending by date
-	void SortByDate();
-
 	//Prints the whole log book to the given ostream
 	//param ost: ostream to write
 	void PrintLogs(std::ostream& ost) const;
@@ -63,7 +60,6 @@ private:
 	};
 
 	std::vector<TEntry> mEntries;
-
 };
 
 #endif

@@ -25,8 +25,11 @@ CarPool::CarPool(CarPool const& cp)
 
 void CarPool::operator=(CarPool const& cp)
 {
-	Free();
-	Copy(cp);
+	if (this != &cp)
+	{
+		Free();
+		Copy(cp);
+	}	
 }
 
 void CarPool::AddVehicle(Vehicle * v)
