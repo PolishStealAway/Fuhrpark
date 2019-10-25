@@ -12,6 +12,7 @@
 
 static const std::string cErrLicenseAlreadyExists = "License already exists! Couldn't add vehicle.";
 static const std::string cErrVehicleDoesNotExist = "Vehicle does not exist! Couldn't remove vehicle.";
+static const std::string cErrVehicleNullptr = "Given vehicle pointer is null!";
 
 CarPool::~CarPool()
 {
@@ -34,6 +35,11 @@ void CarPool::operator=(CarPool const& cp)
 
 void CarPool::AddVehicle(Vehicle * v)
 {
+	if (v == nullptr)
+	{
+		std::cerr << cErrVehicleNullptr << std::endl;
+		return;
+	}
 	TVehiclePointerItor it;
 	if (!SearchByLicense(v->GetLicense(), it))
 	{

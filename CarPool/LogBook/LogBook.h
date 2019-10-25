@@ -44,11 +44,13 @@ public:
 private:
 
 	//This class represents an entry in the log book
-	class TEntry
+	class TEntry : public Object
 	{
 	public:
 		tm mDate;
 		size_t mDistance;
+
+		TEntry(tm const& date, size_t const distance);
 
 		bool operator==(TEntry const& entry) const;
 		bool operator<(TEntry const& entry) const;

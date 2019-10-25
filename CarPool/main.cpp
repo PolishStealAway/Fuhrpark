@@ -174,6 +174,11 @@ int main()
 
 	PandA_Solutions.RemoveVehicle(adams_car.GetLicense());
 
+	cout << "All nullptr to Vehicles: " << endl;
+	cout << "-----------------------------------" << endl;
+	PandA_Solutions.AddVehicle(nullptr);
+	cout << endl;
+
 	cout << "Adams Car (LL-ISSO5) got removed: " << endl;
 	cout << "-----------------------------------" << endl;
 

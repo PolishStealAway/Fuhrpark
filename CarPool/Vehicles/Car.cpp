@@ -10,7 +10,6 @@
 #include "../PrintParameters.h"
 #include <iomanip>
 
-
 Car::Car(std::string const& lic, std::string const& brand) : Vehicle {lic, brand}
 {
 }
@@ -30,5 +29,15 @@ void Car::Print(std::ostream& os) const
 
 Vehicle* Car::Clone() const
 {
-	return new Car{ *this };
+	try
+	{
+		Car* pCar = new Car{ *this };
+		return pCar;
+	}
+	catch (std::bad_alloc const& ex)
+	{
+		std::cerr << ex.what() << std::endl;
+		std::cerr << cErrAllocation << std::endl;
+		return nullptr;
+	}
 }

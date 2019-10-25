@@ -68,6 +68,10 @@ size_t LogBook::GetKMSum() const
 	return sum;
 }
 
+LogBook::TEntry::TEntry(tm const& date, size_t const distance): mDate{date}, mDistance{distance}
+{
+}
+
 bool LogBook::TEntry::operator==(TEntry const& entry) const
 {
 	return mDistance == entry.mDistance && mDate.tm_year == entry.mDate.tm_year && mDate.tm_mon == entry.mDate.tm_mon && mDate.tm_mday == entry.mDate.tm_mday;
