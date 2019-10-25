@@ -57,3 +57,88 @@
 
 \newcommand{\sourceCode}[1]{\lstinputlisting[style=customcpp]{#1}}
 \newcommand\tab[1][1cm]{\hspace*{#1}}
+%****************** self defined commands ***************************
+%include a .cpp source file
+%usage: \cppfile{../path_to_your_file/filename}
+\newcommand{\cppfile}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption="#1.cpp",label="#1.cpp", style=customcpp]{#1.cpp}
+\end{itemize}
+}
+
+%include a .c source file
+%usage: \cfile{../path_to_your_file/filename}
+\newcommand{\cfile}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption="#1.c",label="#1.c", style=customcpp]{#1.c}
+\end{itemize}
+}
+
+%include a code snippet
+%usage: \hfile{../path_to_your_file/filename}{startline}{endline}
+\newcommand{\csnippet}[3]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1.c, style=customcpp, firstline=#2,lastline=#3]{#1.c}
+\end{itemize}
+}
+
+%include a .h source file
+%usage: \hfile{../path_to_your_file/filename}
+\newcommand{\hfile}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption="#1".h,label="#1.h", style=customcpp]{#1.h}
+\end{itemize}
+}
+
+%include a module (.cpp and .h)
+%usage: \hfile{../path_to_your_file/filename}
+\newcommand{\cppmodul}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1.h,label=#1.h, style=customcpp]{#1.h}
+\item[]\lstinputlisting[caption=#1.cpp,label=#1.cpp, style=customcpp]{#1.cpp}
+\end{itemize}
+}
+
+%include a module (.c and .h)
+%usage: \hfile{../path_to_your_file/filename}
+\newcommand{\cmodul}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1.h,label=#1.h, style=customcpp]{#1.h}
+\item[]\lstinputlisting[caption=#1.c,label=#1.c, style=customcpp]{#1.c}
+\end{itemize}
+}
+
+%include a code snippet
+%usage: \hfile{../path_to_your_file/filename}{startline}{endline}
+\newcommand{\snippet}[3]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1.cpp,label=#1.cpp, style=customcpp, firstline=#2,lastline=#3]{#1.cpp}
+\end{itemize}
+}
+
+%include a test-output file 
+%usage: \testoutput{../path_to_your_file/filename}
+\newcommand{\testoutput}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1]{#1.txt}
+\end{itemize}
+}
+
+%include a .s source file
+%usage: \assemblerfile{../path_to_your_file/filename}
+
+\newcommand{\assemblerfile}[1]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1.s ,label=#1.s , style=customassembler]{#1.s}
+\end{itemize}
+}
+
+%include a code snippet
+%usage: \hfile{../path_to_your_file/filename}{startline}{endline}
+\newcommand{\assemblersnippet}[3]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#1.s, style=customassembler, firstline=#2,lastline=#3]{#1.s}
+\end{itemize}
+}
+
+

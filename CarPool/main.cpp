@@ -203,7 +203,7 @@ int main()
 
 	cout << "Remove vehicle with license 'LL-HARD3' and assign PandA_Solutions to carpool1 (assignment operator): " << endl;
 	cout << "-----------------------------------" << endl;
-	PandA_Solutions.RemoveVehicle("L-HARD3");
+	PandA_Solutions.RemoveVehicle("LL-HARD3");
 	carpool1 = PandA_Solutions;
 	carpool1.PrintVehicles(cout);	
 

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CarPool">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAAAAAAAAAAAAAAAAAAAAgAAIAAAAgAiIAAAAAM=</HashCode>
+      <FileName>CarPool\CarPool.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LogBook">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Class Name="LogBook::TEntry" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>LogBook\LogBook.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAEAAAQAAAAAAAAAAAAAAAAAAAAAAAAAEJAAAABAAAA=</HashCode>
+      <FileName>LogBook\LogBook.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Car">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAEABA=</HashCode>
+      <FileName>Vehicles\Car.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Motorcycle">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAEABA=</HashCode>
+      <FileName>Vehicles\Motorcycle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Truck">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEABA=</HashCode>
+      <FileName>Vehicles\Truck.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vehicle">
+    <Position X="2.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAQAAACAABAAABAAAEAAAAAAEABA=</HashCode>
+      <FileName>Vehicles\Vehicle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Object">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Object.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Typedef Name="TVehiclePointerItor" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CarPool\CarPool.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

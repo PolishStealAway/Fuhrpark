@@ -1,0 +1,224 @@
+Visual Leak Detector read settings from: C:\Program Files (x86)\Visual Leak Detector\vld.ini
+Visual Leak Detector Version 2.5.1 installed.
+***********************************
+Testsection LogBook
+***********************************
+24.3.1993:      43 km
+12.1.2008:      17 km
+31.7.2019:      21 km
+17.9.2019:      89 km
+17.9.2019:      89 km
+17.9.2019:     110 km
+4.12.2019:      43 km
+
+Entry got removed:
+-----------------------------------
+24.3.1993:      43 km
+12.1.2008:      17 km
+31.7.2019:      21 km
+17.9.2019:      89 km
+17.9.2019:     110 km
+4.12.2019:      43 km
+
+ Removing a nonexisting entry:
+-----------------------------------
+Entry does not exist! Couldn't delete entry.
+
+Print km-sum:
+-----------------------------------
+323
+
+Log cleared (for the next testcases it got filled again):
+-----------------------------------
+
+***********************************
+Testsection CarPool
+***********************************
+All added vehicles:
+-----------------------------------
+Fahrzeugart:  Motorrad
+Marke:        Kawazaki
+Kennzeichen:  LL-HAGE1
+
+Fahrzeugart:  LKW
+Marke:        Mercedes
+Kennzeichen:  LL-HARD3
+24.3.1993:      98 km
+12.1.2008:      67 km
+31.7.2019:      45 km
+17.9.2019:      21 km
+4.12.2019:      34 km
+
+Fahrzeugart:  PKW
+Marke:        Opel Corsa (nagelneu)
+Kennzeichen:  LL-ISSO5
+24.3.1993:     927 km
+12.1.2008:     231 km
+31.7.2019:    7028 km
+17.9.2019:    6837 km
+4.12.2019:     211 km
+
+Fahrzeugart:  Motorrad
+Marke:        Yamaha
+Kennzeichen:  LL-BERG2
+24.3.1993:      23 km
+12.1.2008:     432 km
+31.7.2019:      26 km
+17.9.2019:      45 km
+4.12.2019:     117 km
+
+Fahrzeugart:  LKW
+Marke:        Koenigsegg
+Kennzeichen:  LL-WARE4
+24.3.1993:   82456 km
+12.1.2008:    4567 km
+31.7.2019:    4332 km
+17.9.2019:    4321 km
+4.12.2019:    6789 km
+
+Fahrzeugart:  PKW
+Marke:        Opel Corsa (verrostet und ohne Klima)
+Kennzeichen:  LL-C000L
+24.3.1993:    1093 km
+12.1.2008:     265 km
+31.7.2019:     483 km
+17.9.2019:    7392 km
+4.12.2019:      46 km
+
+Adams Car (LL-ISSO5) got removed:
+-----------------------------------
+Fahrzeugart:  Motorrad
+Marke:        Kawazaki
+Kennzeichen:  LL-HAGE1
+
+Fahrzeugart:  LKW
+Marke:        Mercedes
+Kennzeichen:  LL-HARD3
+24.3.1993:      98 km
+12.1.2008:      67 km
+31.7.2019:      45 km
+17.9.2019:      21 km
+4.12.2019:      34 km
+
+Fahrzeugart:  Motorrad
+Marke:        Yamaha
+Kennzeichen:  LL-BERG2
+24.3.1993:      23 km
+12.1.2008:     432 km
+31.7.2019:      26 km
+17.9.2019:      45 km
+4.12.2019:     117 km
+
+Fahrzeugart:  LKW
+Marke:        Koenigsegg
+Kennzeichen:  LL-WARE4
+24.3.1993:   82456 km
+12.1.2008:    4567 km
+31.7.2019:    4332 km
+17.9.2019:    4321 km
+4.12.2019:    6789 km
+
+Fahrzeugart:  PKW
+Marke:        Opel Corsa (verrostet und ohne Klima)
+Kennzeichen:  LL-C000L
+24.3.1993:    1093 km
+12.1.2008:     265 km
+31.7.2019:     483 km
+17.9.2019:    7392 km
+4.12.2019:      46 km
+
+Print LKW with license 'LL-HARD3' (SearchByLicense):
+-----------------------------------
+Fahrzeugart:  LKW
+Marke:        Mercedes
+Kennzeichen:  LL-HARD3
+24.3.1993:      98 km
+12.1.2008:      67 km
+31.7.2019:      45 km
+17.9.2019:      21 km
+4.12.2019:      34 km
+
+Number of vehicles in the car pool:
+5
+
+Print vehicles of copied object (Copy CTOR):
+-----------------------------------
+Fahrzeugart:  Motorrad
+Marke:        Kawazaki
+Kennzeichen:  LL-HAGE1
+
+Fahrzeugart:  LKW
+Marke:        Mercedes
+Kennzeichen:  LL-HARD3
+24.3.1993:      98 km
+12.1.2008:      67 km
+31.7.2019:      45 km
+17.9.2019:      21 km
+4.12.2019:      34 km
+
+Fahrzeugart:  Motorrad
+Marke:        Yamaha
+Kennzeichen:  LL-BERG2
+24.3.1993:      23 km
+12.1.2008:     432 km
+31.7.2019:      26 km
+17.9.2019:      45 km
+4.12.2019:     117 km
+
+Fahrzeugart:  LKW
+Marke:        Koenigsegg
+Kennzeichen:  LL-WARE4
+24.3.1993:   82456 km
+12.1.2008:    4567 km
+31.7.2019:    4332 km
+17.9.2019:    4321 km
+4.12.2019:    6789 km
+
+Fahrzeugart:  PKW
+Marke:        Opel Corsa (verrostet und ohne Klima)
+Kennzeichen:  LL-C000L
+24.3.1993:    1093 km
+12.1.2008:     265 km
+31.7.2019:     483 km
+17.9.2019:    7392 km
+4.12.2019:      46 km
+
+Remove vehicle with license 'LL-HARD3' and assign PandA_Solutions to carpool1 (assignment operator):
+-----------------------------------
+Fahrzeugart:  Motorrad
+Marke:        Kawazaki
+Kennzeichen:  LL-HAGE1
+
+Fahrzeugart:  Motorrad
+Marke:        Yamaha
+Kennzeichen:  LL-BERG2
+24.3.1993:      23 km
+12.1.2008:     432 km
+31.7.2019:      26 km
+17.9.2019:      45 km
+4.12.2019:     117 km
+
+Fahrzeugart:  LKW
+Marke:        Koenigsegg
+Kennzeichen:  LL-WARE4
+24.3.1993:   82456 km
+12.1.2008:    4567 km
+31.7.2019:    4332 km
+17.9.2019:    4321 km
+4.12.2019:    6789 km
+
+Fahrzeugart:  PKW
+Marke:        Opel Corsa (verrostet und ohne Klima)
+Kennzeichen:  LL-C000L
+24.3.1993:    1093 km
+12.1.2008:     265 km
+31.7.2019:     483 km
+17.9.2019:    7392 km
+4.12.2019:      46 km
+
+No memory leaks detected.
+Visual Leak Detector is now exiting.
+
+C:\Users\kensy\Google Drive\Hardware-Software-Design\3-Semester\SDP3\Uebung\Fuhrpark\Fuhrpark\CarPool\x64\Debug\CarPool.exe (Prozess "18932") wurde mit Code "0" beendet.
+Um die Konsole beim Beenden des Debuggens automatisch zu schließen, aktivieren Sie "Extras" > "Optionen" > "Debuggen" > "Konsole beim Beenden des Debuggings automatisch schließen".
+Drücken Sie eine beliebige Taste, um dieses Fenster zu schließen.

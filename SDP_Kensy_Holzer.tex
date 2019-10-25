@@ -58,8 +58,8 @@
 
 \subsection{Aufwand}
 \begin{itemize}
-	\item Philipp Holzer		\tab geschätzt:		\tab tatsächlich:
-	\item Adam Kensy		\tab  geschätzt:		\tab  tatsächlich:
+	\item Philipp Holzer		\tab geschätzt: 7	\tab tatsächlich: 8
+	\item Adam Kensy		\tab  geschätzt:	7	\tab  tatsächlich: 5
 \end{itemize}
 
 % Für eine numerierte Aufzählung verwendet man 
@@ -69,6 +69,7 @@
 %\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
 \section{Anforderungsdefinition (Systemspezifikation)}
 
 Gesucht ist ein Fuhrpark wo man verschiedene Fahrzeuge verwalten kann. Die Fahrzeuge besitzen jeweils ein Kennzeichen, Marke und ein Fahrtenbuch.
@@ -79,7 +80,10 @@ Der Fuhrpark hat keine Begrenzung bei der Menge an Fahrzeugen, jedoch kann jedes
 \section{Systementwurf}
 
 \subsection{Klassendiagramm}
- \includepdf[pages=-]{UML-Diagram} 
+ \includegraphics[scale = 0.40]{UML-Diagram.pdf}
+
+\subsection{Klassendiagramm durch Visual Studio}
+\includegraphics[scale=0.65]{./CarPool/ClassDiagram.png}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Komponentenübersicht}
@@ -109,6 +113,11 @@ Basis aller Klassen
 \subsection{Designentscheidungen}
 \begin{itemize}
 \item Es wurde keine EBNF erstellt da es international anwendbar sein soll. 
+\item Der Fuhrpark redet mit uns über die Konsole wenn etwas schiefläuft -> wenn kein Fahrzeug hinzugefügt oder entfernt werden konnte bekommen wird eine Fehlermeldung aber ansonsten bleibt der Fuhrpark ruhig. 
+\item Wir haben uns entschieden, dass das Einfügen und Entfernen über Pointer läuft - wir dachten uns, es macht so am meisten Sinn denn man parkt das Fahrzeug irgendwo und teilt dies dann der Verwaltung mit. 
+\item Dadurch, dass wir mit Pointer arbeiten haben wir beim Carpool die Rule-Of-Three angewandt. 
+\item Wir benutzen die tm-Struktur für Datums-Angaben und erwarten uns eine sinnvolle Eingabe vom Anwender. 
+\item Es wird sortiert ins Fahrtenbuch eingetragen, dies macht am meisten Sinn, da man dies direkt nach einer Fahrt macht. 
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -126,7 +135,7 @@ Basis aller Klassen
 %Immer mit subsections die einzelnen Klassen genauer erläuten.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\newpage
 \section{Testprotokollierung}
 
 %Im Testprotokoll werden die Testdaten und die Testergebnisse für alle Testfälle beschrieben. Weiters muss die Testumgebung angeführt sein (welches %Testframework
@@ -136,16 +145,16 @@ Basis aller Klassen
 
 \subsection{Testumgebung}
 
-Microsoft Visual Studio Enterprise 2019
-Version 16.3.5
-Microsoft Visual C++ 2019
-
-Windows 10, 64Bit, Build 18362
-
+Microsoft Visual Studio Enterprise 2019\\
+Version 16.3.5\\
+Microsoft Visual C++ 2019\\
+\\
+Windows 10, 64Bit, Build 18362\\
+\\
 Testdriver: main.cpp
 
 \subsection{Testausgabe}
-%\lstinputlisting{testfall.txt}
+\lstinputlisting{test_output.txt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Tabellen und Diagramme}
@@ -170,7 +179,23 @@ Testdriver: main.cpp
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quellcode}
 
-\subsection{Object.h}
+\subsection{Object}
+\cppmodul{CarPool/Object}
+
+\subsection{CarPool}
+\cppmodul{./CarPool/CarPool/CarPool}
+
+\subsection{Vehicles}
+\cppmodul{./CarPool/Vehicles/Vehicle}
+\cppmodul{./CarPool/Vehicles/Car}
+\cppmodul{./CarPool/Vehicles/Truck}
+\cppmodul{./CarPool/Vehicles/Motorcycle}
+
+\subsection{LogBook}
+\cppmodul{./CarPool/LogBook/LogBook}
+
+\subsection{main}
+\cppfile{./CarPool/main}
 
 % Um Quellcode einzufügen einfach diesen Befehl verwenden:
 %\sourceCode{Relativer/Pfad/zum/SourceCode.Endung}
