@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>610</x>
-      <y>170</y>
+      <x>660</x>
+      <y>110</y>
       <w>200</w>
       <h>70</h>
     </coordinates>
@@ -18,10 +18,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>60</x>
-      <y>300</y>
+      <x>310</x>
+      <y>260</y>
       <w>410</w>
-      <h>170</h>
+      <h>280</h>
     </coordinates>
     <panel_attributes>CarPool
 
@@ -29,20 +29,27 @@
  - list&lt;Vehicle*&gt; mVehicles
  
 --
- + void AddVehicle(Vehicle const&amp; veh)
- + void RemoveVehicle(Vehicle &amp; veh)
+ + CarPool() = default
+ + ~CarPool() = default
+ + CarPool(CarPool const&amp; cp)
+ + void operator=(CarPool const&amp; cp)
+ + void AddVehicle(Vehicle * v)
+ + void RemoveVehicle(string const&amp; lic)
  + bool SearchByLicense(string const&amp; lic, TVehicleItor&amp; found)
  + void PrintVehicles(ostream &amp; os)
- + size_t GetVehicleAmount()</panel_attributes>
+ + size_t GetVehicleAmount()
+
+ - Copy(CarPool const&amp; cp)
+ - Free()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>980</x>
-      <y>300</y>
+      <x>830</x>
+      <y>280</y>
       <w>390</w>
-      <h>330</h>
+      <h>320</h>
     </coordinates>
     <panel_attributes>LogBook
 
@@ -52,7 +59,6 @@
 --
  + void NewEntry(tm const&amp; date, size_t const distance)
  + bool RemoveEntry(tm const&amp; date, size_t const distance)
- + void SortByDate()
  + void PrintLogs(ostream&amp; ost) const
  + void Clear()
  + size_t GetKMSum() const
@@ -64,69 +70,75 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>330</y>
-      <w>120</w>
-      <h>30</h>
+      <x>500</x>
+      <y>530</y>
+      <w>130</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0;110.0;160.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>330</y>
+      <x>910</x>
+      <y>590</y>
       <w>140</w>
-      <h>30</h>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+    <additional_attributes>10.0;100.0;120.0;100.0;120.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
-      <y>590</y>
-      <w>270</w>
-      <h>60</h>
+      <x>470</x>
+      <y>940</y>
+      <w>280</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>Car
 -
-Car(string const&amp; lic, string const&amp; brand)</panel_attributes>
+ + Car(string const&amp; lic, string const&amp; brand)
+ + void Print(ostream&amp; os) const override
+ + Vehicle* Clone() const override</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>550</x>
-      <y>670</y>
-      <w>290</w>
-      <h>60</h>
+      <x>600</x>
+      <y>1030</y>
+      <w>300</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>Truck
 -
-Truck(string const&amp; lic, string const&amp; brand)</panel_attributes>
+ + Truck(string const&amp; lic, string const&amp; brand)
+ + void Print(ostream&amp; os) const override
+ + Vehicle* Clone() const override</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>700</x>
-      <y>740</y>
-      <w>320</w>
-      <h>60</h>
+      <x>750</x>
+      <y>1120</y>
+      <w>330</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>Motorcycle
 -
-Motorcycle(string const&amp; lic, string const&amp; brand)</panel_attributes>
+ + Motorcycle(string const&amp; lic, string const&amp; brand)
+ + void Print(ostream&amp; os) const override
+ + Vehicle* Clone() const override</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>700</x>
-      <y>460</y>
+      <x>750</x>
+      <y>820</y>
       <w>30</w>
       <h>230</h>
     </coordinates>
@@ -136,8 +148,8 @@ Motorcycle(string const&amp; lic, string const&amp; brand)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>520</y>
+      <x>590</x>
+      <y>870</y>
       <w>180</w>
       <h>90</h>
     </coordinates>
@@ -147,24 +159,25 @@ Motorcycle(string const&amp; lic, string const&amp; brand)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>510</y>
+      <x>740</x>
+      <y>860</y>
       <w>190</w>
-      <h>250</h>
+      <h>280</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;170.0;20.0;170.0;230.0</additional_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0;170.0;260.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1000</x>
-      <y>490</y>
-      <w>300</w>
+      <x>850</x>
+      <y>450</y>
+      <w>320</w>
       <h>130</h>
     </coordinates>
     <panel_attributes>TEntry
 --
+ + TEntry(tm const&amp; date, size_t const distance)
  + bool operator==(TEntry const&amp; entry) const
  + bool operator&lt;(TEntry const&amp; entry) const
  + void PrintEntry(ostream&amp; ost) const</panel_attributes>
@@ -173,43 +186,32 @@ Motorcycle(string const&amp; lic, string const&amp; brand)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>700</x>
-      <y>230</y>
+      <x>750</x>
+      <y>170</y>
       <w>30</w>
-      <h>90</h>
+      <h>500</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;480.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>260</y>
-      <w>470</w>
-      <h>60</h>
+      <x>750</x>
+      <y>360</y>
+      <w>100</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;40.0;10.0;10.0;450.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>700</x>
-      <y>260</y>
-      <w>490</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>470.0;40.0;470.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>80.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
-      <y>300</y>
+      <x>610</x>
+      <y>650</y>
       <w>310</w>
-      <h>170</h>
+      <h>180</h>
     </coordinates>
     <panel_attributes>Vehicle
 --
@@ -219,10 +221,22 @@ Motorcycle(string const&amp; lic, string const&amp; brand)</panel_attributes>
 --
  + string GetBrand() const
  + string GetLicense() const
- + LogBook GetLogbook()
+ + virtual void Print(ostream&amp; os) const = 0
+ + virtual Vehicle* Clone() const = 0
  # Vehicle() = default
  # Vehicle(string const&amp; lic, string const&amp; brand)
 </panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>710</x>
+      <y>360</y>
+      <w>70</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;50.0;20.0</additional_attributes>
   </element>
 </diagram>
