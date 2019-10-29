@@ -25,6 +25,9 @@ Philipp Holzer
 \begin{textblock*}{40mm}(170mm,110mm)
 16
 \end{textblock*}
+\begin{textblock*}{40mm}(160mm,67mm)
+29.10.2019
+\end{textblock*}
 \includepdf[pages=-]{angabe}
 
 
@@ -58,6 +61,7 @@ Philipp Holzer
 		\item Klassendiagramm
 		\item Implementierung und Testen der Klassen
 			\begin{itemize}
+			\item Object
 			\item Logbook
 			\item Vehicle
 			\end{itemize}
@@ -102,7 +106,7 @@ Das Fahrtenbuch wird chronologisch abgespeichert - man kann auch Einträge entfe
 \section{Systementwurf}
 
 \subsection{Klassendiagramm}
- \includegraphics[scale = 0.55]{UML-Diagram.pdf}
+ \includegraphics[scale = 0.50]{UML-Diagram.pdf}
 
 \subsection{Klassendiagramm durch Visual Studio}
 \includegraphics[scale=0.65]{./CarPool/ClassDiagram.png}
@@ -121,26 +125,26 @@ Basis aller Klassen
 
 \item \textbf{Klasse "Logbook"}
 \\ Das Fahrtenbuch der Fahrzeuge
-\\ Vor der Ausgabe wird das Fahrtenbuch immer nach Datum sortiert
+\\ Einträge werden sortiert eingefügt
 
 \item \textbf{Klasse "Vehicle"}
-\\ Stellt die Fahrzeuge dar, dazu gehören: PKW, LKW, Motorräder
+\\ Abstrakte Basisklasse der Fahrzeuge
+
 
 \item \textbf{Klasse "Car", "Truck", "Motorcycle"}
 \\ Konkrete Objekte für die Fahrzeuge
-\\ Besitzen nur eine Ausgabefunktion, wobei der Ausgabeoperator überschrieben ist
 
 \end{itemize}
 
 \subsection{Designentscheidungen}
 \begin{itemize}
-\item Es wurde keine EBNF erstellt da es international anwendbar sein soll. 
-\item Der Fuhrpark redet mit uns über die Konsole wenn etwas schiefläuft -> wenn kein Fahrzeug hinzugefügt oder entfernt werden konnte bekommen wird eine Fehlermeldung aber ansonsten bleibt der Fuhrpark ruhig. 
-\item Wir haben uns entschieden, dass das Einfügen und Entfernen über Pointer läuft - wir dachten uns, es macht so am meisten Sinn denn man parkt das Fahrzeug irgendwo und teilt dies dann der Verwaltung mit. 
-\item Es wurde eine Liste genommen, da dadurch immer wieder ein Fahrzeug hinzugefügt werden kann, somit kann es ständig wachsen. Außerdem lässt sich in einer Liste ein Fahrzeug auch schneller finden. 
-\item Dadurch, dass wir mit Pointer arbeiten haben wir beim Carpool die Rule-Of-Three angewandt. 
-\item Wir benutzen die tm-Struktur für Datums-Angaben und erwarten uns eine sinnvolle Eingabe vom Anwender. 
+\item Es wurde keine Kennzeichen-Überprüfung implementiert, da von Staat zu Staat die Kennzeichen unterschiedlich variieren. Jedoch darf jedes Kennzeichen nur einmal vorkommen. 
+\item Fehlermeldungen werden in der Konsole ausgegeben und es werden keine Exceptions nach außen geworfen. 
+\item Um ein Fahrzeug hinzuzufügen muss ein Pointer auf ein dynamisch angelegtes Fahrzeugobjekt übergeben werden. Bereits am Stack erzeugte Fahrzeuge können mithilfe der Clone()-Funktion zum Fuhrpark hinzugefügt werden. Das Entfernen jedoch funktiort mittels Kennzeichenübergabe. 
+\item Da wir davon ausgehen, dass im Fuhrpark Fahrzeuge öfter gesucht werden müssen, entschieden wir uns für eine Standard-list als Container. 
+\item Wir benutzen die tm-Struktur aus der Library \string<ctime\string> für Datums-Angaben und setzen Werte gemäß der Dokumentation voraus.  
 \item Es wird sortiert ins Fahrtenbuch eingetragen, dies macht am meisten Sinn, da man dies direkt nach einer Fahrt macht. 
+\item Einträge werden nur innerhalb des LogBooks bearbeitet. Von außen können sie nur erstellt oder gelöscht werden. 
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -161,25 +165,28 @@ Diese Klasse stellt die Basis aller Klassen dar.
 
 \subsection{Klasse CarPool}
 Diese Klasse verwaltet alle Fahrzeuge im Fuhrpark. Die Pointer auf alle Fahrzeuge werden in einer Liste gespeichert. \\
-Hier wurde die Rule-Of-Three angewandt, damit man einen Fuhrpark kopieren beziehungsweise einem anderen Objekt zuweisen kann.\\
+Hier wurde die Rule-Of-Three angewandt um Memory Leaks zu vermeiden in Fällen von Zuweisungen oder Kopiervorgängen.\\
 Mit AddVehicle() können Fahrzeuge hinzugefügt werden. Dieser Funktion muss ein Pointer auf ein PKW, LKW oder Motorrad übergeben werden. \\
 Mit RemoveVehicle() können Fahrzeuge entfernt werden und dieser Funktion muss ein Kennzeichen übergeben werden. \\
-Mit SearchByLicense() kann nach Fahrzeugen gesucht werden. Dieser Funktion wird ebenfalls ein Kennzeichen übergeben. Wurde das Kennzeichen im Fuhrpark gefunden wird true zurückgegeben ansonsten false, was und auch in der Konsole mitgeteilt wird. \\
+Mit SearchByLicense() kann nach Fahrzeugen gesucht werden. Dieser Funktion wird ebenfalls ein Kennzeichen übergeben und zusätzlich ein Iterator, als Übergangsparameter auf das Objekt. Dieser zeigt nach Ablauf der Funktion auf das gefundene Objekt, ansonsten auf das Ende Containers. Wurde das Kennzeichen im Fuhrpark gefunden wird true zurückgegeben ansonsten false, was und auch in der Konsole mitgeteilt wird. \\
 Mit der PrintVehicles() Funktion wird der Fuhrpark komplett ausgegeben. Hierbei wird die Print Funktion jedes Fahrzeuges aufgerufen worin auch das LogBook ausgegeben wird.
 
 \subsection{Klasse Vehicle}
-Diese Klasse, von der die einzelnen Fahrzeuge abgeleitet werden, besitzt alle Basis-Funktionen für ein Fahrzeug.\\
-Mit den beiden Get-Funktionen (GetBrand() und GetLicense()) erfährt man die Marke und das Kennzeichen des Autos. Die Print()-Funktion ist eine virtuelle Methode welche dann in den einzelnen Fahrzeugen aufgerufen wird. \\
-Die virtuelle Clone()-Funktion wurde zwecks des Copy-Constructur der Klasse "CarPool" hinzugefügt wo ein Pointer der neu erstellten Kopie eines Fahrzeug-Objektes zurückgegeben wird. 
+Diese abstrakte Klasse, von der die einzelnen Fahrzeuge abgeleitet werden, besitzt alle Basis-Funktionen für ein Fahrzeug.\\
+Mit den beiden Get-Funktionen (GetBrand() und GetLicense()) erfährt man die Marke und das Kennzeichen des Autos. Die Print()-Funktion ist eine abstrakte Methode welche dann in den einzelnen Fahrzeugen aufgerufen wird. \\
+Die abstrake Clone()-Funktion wird benötigt um am Stack angelegte Objekte dem Fuhrpark hinzuzufügen da der Fuhrpark nur dynamisch erstellte Objekte verwaltet. 
 
 \subsection{Klasse Car, Truck und Motorcycle}
-Die von der Fahrzeug abgeleiteten Klassen sehen beinahe identisch aus. Alle 3 haben ihren Konstruktur wo man ein Kennzeichen und eine Marke übergibt.\\
-Die überschriebene Print()-Funktion wird von deren Basisklasse zuerst aufgerufen. Dies trifft auch auf die Clone()-Funktion zu. 
+Die von der Klasse Vehicle abgeleiteten Klassen sehen beinahe identisch aus. Alle 3 haben ihren Konstruktur wo man ein Kennzeichen und eine Marke übergibt.\\
+Alle 3 Klassen müssen eine Print() und eine Clone() Funktion implementiert haben. 
 
 \subsection{Klasse LogBook}
-Diese Klasse stellt das Fahrtenbuch eines Fahrzeuges dar. Mit NewEntry() kann ein Eintrag getätigt werden, wobei sortiert eingefügt wird und mit RemoveEntry() kann man einen Eintrag entfernen. Beide verlangen als Parameter ein Datum des Datentyp "tm" (aus der library <ctime>). \\
-Die PrintLogs()-Funktion wird in den einzelnen Print-Funktionen der abgeleiteten Fahrzeugen aufgerufen, sodass das eigene Fahrtenbuch formatiert ausgegeben wird. \\
+Diese Klasse stellt das Fahrtenbuch eines Fahrzeuges dar. Mit NewEntry() kann ein Eintrag erzeugt werden, wobei sortiert eingefügt wird und mit RemoveEntry() kann man einen Eintrag entfernen. Beide verlangen als Parameter ein Datum des Datentyp "tm" (aus der library \string<ctime\string>). \\
+Die PrintLogs()-Funktion wird in den einzelnen Print-Funktionen der abgeleiteten Fahrzeuge aufgerufen, sodass das eigene Fahrtenbuch formatiert ausgegeben wird. \\
 Mit Clear() kann ein ganzes Fahrtenbuch gelöscht werden. Die GetKMSum() Funktion berechnet die gesamt gefahrenen Kilometer eines Fahrzeuges.
+
+\subsection{Klasse TEntry}
+Die Klasse TEntry bildet einen Eintrag im Fahrtenbuch ab. Sie ist nur für die Klasse LogBook sichtbar, da außerhalb des LogBooks keine Einträge einzeln bearbeitet werden. Sie werden nur hinzugefügt oder gelöscht. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

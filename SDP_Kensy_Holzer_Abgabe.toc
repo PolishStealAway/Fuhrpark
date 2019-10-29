@@ -1,0 +1,27 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Organisatorisches}{4}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Team}{4}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Aufteilung und Verantwortlichkeitsbereiche}{4}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Aufwand}{4}{subsection.1.3}% 
+\contentsline {section}{\numberline {2}Anforderungsdefinition (Systemspezifikation)}{5}{section.2}% 
+\contentsline {section}{\numberline {3}Systementwurf}{6}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Klassendiagramm}{6}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Klassendiagramm durch Visual Studio}{7}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Komponentenübersicht}{7}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Designentscheidungen}{7}{subsection.3.4}% 
+\contentsline {section}{\numberline {4}Komponentenentwurf}{9}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Klasse Object}{9}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Klasse CarPool}{9}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Klasse Vehicle}{9}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Klasse Car, Truck und Motorcycle}{9}{subsection.4.4}% 
+\contentsline {subsection}{\numberline {4.5}Klasse LogBook}{9}{subsection.4.5}% 
+\contentsline {subsection}{\numberline {4.6}Klasse TEntry}{10}{subsection.4.6}% 
+\contentsline {section}{\numberline {5}Testprotokollierung}{11}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Testumgebung}{11}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Testausgabe}{11}{subsection.5.2}% 
+\contentsline {section}{\numberline {6}Quellcode}{14}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Object}{14}{subsection.6.1}% 
+\contentsline {subsection}{\numberline {6.2}CarPool}{14}{subsection.6.2}% 
+\contentsline {subsection}{\numberline {6.3}Vehicles}{17}{subsection.6.3}% 
+\contentsline {subsection}{\numberline {6.4}LogBook}{22}{subsection.6.4}% 
+\contentsline {subsection}{\numberline {6.5}main}{25}{subsection.6.5}% 
